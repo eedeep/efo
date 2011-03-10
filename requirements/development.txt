@@ -3,5 +3,5 @@
 
 --requirement=project.txt
 
-pygraphviz
+# pygraphviz
 Fabric
