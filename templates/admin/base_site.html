@@ -1,0 +1,31 @@
+{% extends admin_template_base_site %}
+
+{% block branding %}
+{{ block.super }}
+
+<script type="text/javascript">
+    
+    // Use the image URL below to prepopulate empty thumbnail img tags 
+    // for filebrowser image fields before the are populated.
+
+    var placeholderImgURL = '/site_media/static/images/image-placeholder.png';
+
+    django.jQuery(function() {
+        django.jQuery.each(django.jQuery('.preview'), function(i, img) {
+            var img = django.jQuery(img);
+            if (!img.attr('src')) {
+                img.attr('src', placeholderImgURL);
+                img.parent().parent().show();
+            }
+        });
+    });
+
+</script>
+
+<style>
+    /* Defines size of textareas until tinymce is properly implemented */
+    .mceNoEditor {width:300px !important; height:100px !important;}
+    .fb_show {display: inline-block !important;}
+</style>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "people/base.html" %}
+{% load i18n %}
+
+{% block body_class %}{{ block.super }} person{% endblock %}
+
+{% block body %}
+    
+    {% with person as object %}
+    
+    {% include "base/_object_feature_image.html" %}
+    
+    {% endwith %}
+    
+    <section id="person-details">
+        
+        {% include "people/_person_details.html" %}
+        
+        {% if user.is_authenticated and user.id == person.user.id %}
+        <p><a href="{% url person_account person.user.username %}">Edit your account</a></p>
+        {% endif %}
+        
+    </section>    
+    
+{% endblock%}
+
+{% block aside %}
+    
+    <section id="person-object-stream" class="objects-list">
+        <header>
+            {% with person as object %}
+            {% include "base/_object_list_filter.html" %}
+            {% endwith %}
+        </header>
+        {% for object in stream_objects %}
+        
+            {% if object.individual %}
+                {#  project individual #}
+                {# {% include "base/_object_list.html" %} #}
+                
+            {% else %}{% if object.comment %}
+                {% include "base/_object_list_item.html" %}
+                
+            {% else %}{% if object.content_object %}
+                {% with object.content_object as object %}
+                    {% include "base/_object_list_item.html" %}
+                {% endwith %}
+                
+            {% else %}
+                {% include "base/_object_list_item.html" %}
+            {% endif %}{% endif %}{% endif %}
+        {% endfor %}
+    </section>
+    
+{% endblock %}

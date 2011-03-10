@@ -1,0 +1,67 @@
+{% extends "publications/base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load humanize %}
+
+{% block head_title %}
+    {% with issue as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with issue as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} {% with issue as object %}{{ object.content_type }}{% endwith %}{% endblock %}
+
+{% block body %}
+
+    <section id="object" class="magazine-issue">
+        
+        <article>
+            
+            <header>
+                <h1>{{ issue.magazine.title }}: {{ issue.issue_name }}</h1>
+            </header>
+            {% with issue as object %}
+                {% include "base/_object_meta.html" %}
+            {% endwith %}
+            <figure id="magazine-issue-cover">
+                {% if issue.cover_image_exists %}
+                    {% thumbnail issue.cover_image "202" as cover_image %}
+                        <img 
+                            alt="{{ issue.issue_name }}"
+                            src="{{ cover_image.url }}"
+                            width="{{ cover_image.width }}" 
+                            height="{{ cover_image.height }}" />
+                    {% endthumbnail %}
+                {% else %}
+                    {% thumbnail issue.placeholder_image_url "202" as cover_image %}
+                        <img 
+                            alt="{{ issue.issue_name }}"
+                            src="{{ cover_image.url }}"
+                            width="{{ cover_image.width }}" 
+                            height="{{ cover_image.height }}" />
+                    {% endthumbnail %}
+                {% endif %}
+            </figure>
+    
+        {% if issue.magazine.content %}
+            <div class="object-content">{{ issue.magazine.content|safe }}</div>
+        {% endif %}
+
+        </article>
+        
+        {% block section_content %}{% endblock %}
+        
+    </section>
+
+{% endblock%}
+
+{% block aside %}
+    {% include "base/_object_asides_combo.html" %}
+{% endblock %}

@@ -1,0 +1,47 @@
+<nav id="objects-filter-nav">
+    
+    <form method="get">
+        
+        <label class="object-date-filter" for="object-date-filter"></label>
+        <input 
+            type="text" 
+            onchange="this.form.submit();"
+            name="date" id="object-date-filter"
+            value="{{ filter_date|date:'l d M Y' }}"
+        {% if request.GET.date %}
+            value="{{ request.GET.date }}"
+        {% endif %}>
+    
+        {% if event_types|length > 0 %}
+            <select onchange="this.form.submit();" name="type" id="object-type-filter" size="1">
+                <option value="">All types</option>
+            {% for event_type in event_types  %}
+                <option {% spaceless %} 
+                {% if request.GET.type == event_type.slug %}
+                    selected=selected
+                {% endif %} 
+                {% endspaceless %} value="{{ event_type.slug|lower }}">{{ event_type.name|title }}</option>
+            {% endfor %}
+            </select>
+        {% endif %}
+        
+        {% if locations|length > 0 %}
+            <select onchange="this.form.submit();" name="location" id="object-location-filter" size="1">
+                <option value="">All locations</option>
+                {% for location in locations  %}
+                    {% ifchanged location %}
+                        {% if location.city != '' %}
+                        <option {% spaceless %} 
+                        {% if request.GET.location == location.city %}
+                            selected=selected
+                        {% endif %}
+                        {% endspaceless %} value="{{ location.city }}">{{ location.city }}</option>
+                        {% endif %}
+                    {% endifchanged %}
+                {% endfor %}
+            </select> 
+        {% endif %}
+
+    </form>
+    
+</nav>

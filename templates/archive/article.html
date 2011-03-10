@@ -1,0 +1,97 @@
+{% extends "articles/base.html" %}
+{% load thumbnail articles_tags %}
+
+{% block head_title %}
+    {% with article as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with article as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} article{% endblock %}
+
+{% block body %}
+    
+    <section id="object" class="archive-article">
+        <article>
+            <header id="object-header">
+                <h1>{{ article.title }}</h1>
+            </header>
+
+            {% with article as object %}
+                {% include "base/_object_meta.html" %}
+            {% endwith %}
+
+            <div class="object-content">
+                {% if article.has_sections %}
+                    {% for section in article.archivearticlesection_set.all %}
+                        <section id="archive-article-section-{{ forloop.counter }}" class="archive-article-section-template archive-article-section-template-type-{{ section.template }}">
+                            <h2>
+                                {{ section.heading }}
+                            </h2>
+                            <p>
+                                {{ section.body|safe }}
+                            </p>
+                            {% for section_image in section.articlesectionimage_set.all %}
+                                <ul>
+                                    <li>
+                                        <img src="{{ section_image.url.url_full }}" />
+                                    </li>
+                                    <li>
+                                        {{ section_image.caption|safe }}
+                                    </li>
+                                </ul>
+                            {% endfor %}
+                        </section>
+                    {% endfor %}
+                {% else %}
+                    <section id="archive-article-single-section" class="archive-article-section-template">
+                        {{ article.content|safe }}
+                    </section>
+                {% endif %}
+            </div>
+
+        </article>
+    </section>
+    
+    
+    <section id="object-publication-source" class="object-related-meta">
+        <p>
+            <span id="object-source-label">
+                Source: <a href="{{ article.issue.magazine.get_absolute_url }}">{{ article.issue.magazine.title }}</a>,
+            </span>
+            <span id="object-source-magazines">
+                <a href="{{ article.issue.get_absolute_url }}">{{ article.issue.issue_display_name }}</a>
+            </span>
+        </p>
+    </section>
+    
+
+    <section id="object-share-links" class="object-related-functions">
+        <header>
+            <h3>Share this page</h3>
+        </header>
+        {% include "base/_object_social_share.html" %}  
+    </section>
+  
+    {% with article as object %}
+        {% include "base/_object_comments.html" %}
+    {% endwith %}
+    
+    {% with article as object %}
+        {% include "base/_object_credits.html" %}
+        {% include "base/_object_publication_source.html" %}
+        {% include "base/_object_tags.html" %}
+    {% endwith %}
+    
+{% endblock%}
+
+{% block aside %}
+    {% include "base/_object_asides_combo.html" %}
+{% endblock %}

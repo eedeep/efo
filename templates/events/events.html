@@ -1,0 +1,68 @@
+{% extends "events/base.html" %}
+{% load thumbnail %}
+{% load meta_site_tags %}
+
+{% block head_title %}
+    Events | {% current_site_name %} {% current_site_country %}
+
+    {# {% with events as objects %} #}
+    {#     {% include "base/_object_title_tag.html" %} #}
+    {# {% endwith %} #}
+{% endblock %}
+
+{% block extra_head %}
+    {% with events as objects %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/jquery/jquery.ui.core.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery/jquery.ui.widget.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery/jquery.ui.datepicker.js"></script>
+    <script>
+        $(function() {
+            $( "#object-date-filter" ).datepicker({ dateFormat: 'DD d M yy' });
+        });
+    </script>
+{% endblock %}
+
+{% block body_class %}{{ block.super }} events{% endblock %}
+
+{% block extra_body %}
+    {{ block.super }}
+    
+{% endblock %}
+
+{% block body %}
+
+    <section id="object-list" class="events">
+        <header id="object-list-header">
+            <h1>Events</h1>
+            {% include "events/_events_filter.html" %}
+        </header>
+        
+        {% for event_date in event_dates %}
+            {% ifchanged event_date.date %}
+                <h3 class="object-break-heading">{{ event_date.date|date:"l d F Y"  }}{# {% if event_date %} #}</h3>
+            {% endifchanged %}
+            
+            {% with event_date.events as objects %}
+                {% include "base/_object_list.html" %}
+            {% endwith %}
+            
+        {% empty %}
+            <h3 class="object-break-heading">No events found.</h3>
+            <p>No events found.  Choose another date, or <a href={% url events_events %}>reset</a>.</p>
+            
+        {% endfor %}
+
+    </section>
+    
+{% endblock%}
+
+{% block aside %}
+
+    {% with events as objects %}
+    {% include "base/_objects_asides_combo.html" %}
+    {% endwith %}
+    
+{% endblock %}

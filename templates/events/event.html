@@ -1,0 +1,87 @@
+{% extends "events/base.html" %}
+{% load thumbnail %}
+
+{% block head_title %}
+    {% with event as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with event as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} event{% endblock %}
+
+
+{% block body %}
+    <section id="object" class="{{ object.content_type }}">
+    {% with event as object %}
+        <article>
+            <header>
+                <h1>{{ object.title }}</h1>
+            </header>
+        
+            {% include "base/_object_meta.html" %}
+            {% include "base/_object_feature_image.html" %}
+            {% include "base/_object_introduction.html" %}
+                   
+            <div class="event-meta"><p><strong>{{ object.event_type }}</strong>: {{ object.start_date|date:"d F Y" }} {% if object.end_date %}<em>to</em> {{ object.end_date|date:"d F Y" }}{% endif %}</p></div>
+                
+            <div class="object-content">
+                {{ object.content|safe }}
+            </div>
+        </article>    
+    </section>
+        
+        {% include "base/_object_tags.html" %}
+        
+        <section id="object-details" class="object-related-functions">
+            
+            <header>
+            <h3>Location</h3>
+            </header>
+            {% if location %}
+            <div class="object-location-map">
+                {# {% easy_map location 312 208 %} #}
+                <img src="http://maps.google.com/maps/api/staticmap?center={{ location|join:"+" }}&zoom=16&size=312x208&maptype=roadmap
+&markers=color:blue|{{ location|join:"+" }}&sensor=false">
+                
+            </div>
+            {% endif %}
+            <div class="object-location-details">
+                {% if object.venue %}
+                    <h4>{{ object.venue }}</h4>
+                {% endif %}
+                {% if object.street or object.suburb or object.city %}                
+                    {% include "base/_object_location_address.html" %}
+                {% endif %}
+
+                {% if object.website %}
+                    <p><a href="{{ object.website }}">
+                        {% if object.website_name %}
+                            {{ object.website_name }}
+                        {% else %}
+                            {{ object.website }}
+                        {% endif %}
+                        </a>
+                    </p>
+                {% endif %}         
+            </div>
+            
+        </section>
+    
+        {% include "base/_object_comments.html" %}
+    
+    {% endwith %}
+    
+{% endblock%}
+
+{% block aside %}
+
+    {% include "base/_asides_combo.html" %}
+    
+{% endblock %}

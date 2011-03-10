@@ -1,0 +1,24 @@
+{% extends "flatpages/base.html" %}
+
+
+{% block title %}
+    {{ flatpage.title }}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} flatpage{% endblock %}
+
+{% block body %}
+    <section class="flatpage">
+        <header>
+            <h1>{{ flatpage.title }}</h1>
+        </header>
+        {{ flatpage.content }}
+    </section>
+{% endblock %}
+
+{% block aside %}
+    {% with flatpage as object %}
+    {% include "base/_object_asides_combo.html" %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "publications/base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load humanize %}
+
+{% block head_title %}
+    {% with issue as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with issue as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} {% with issue as object %}{{ object.content_type }}{% endwith %}{% endblock %}
+
+{% block body %}
+
+    <section id="object" class="magazine-issue">
+        
+        <article>
+            
+            <header>
+                <h1>{{ issue.magazine.title }}: {{ issue.issue_name }}</h1>
+            </header>
+            {% with issue as object %}
+                {% include "base/_object_meta.html" %}
+            {% endwith %}
+            <figure id="magazine-issue-cover">
+                {% if issue.cover_image_exists %}
+                    {% thumbnail issue.cover_image "202" as cover_image %}
+                        <img 
+                            alt="{{ issue.issue_name }}"
+                            src="{{ cover_image.url }}"
+                            width="{{ cover_image.width }}" 
+                            height="{{ cover_image.height }}" />
+                    {% endthumbnail %}
+                {% else %}
+                    {% thumbnail issue.placeholder_image_url "202" as cover_image %}
+                        <img 
+                            alt="{{ issue.issue_name }}"
+                            src="{{ cover_image.url }}"
+                            width="{{ cover_image.width }}" 
+                            height="{{ cover_image.height }}" />
+                    {% endthumbnail %}
+                {% endif %}
+            </figure>
+    
+        {% if issue.magazine.content %}
+            <div class="object-content">{{ issue.magazine.content|safe }}</div>
+        {% endif %}
+        
+        </article>
+        
+    </section>
+    
+    {% if articles %}
+    
+        <section id="magazine-issue-toc" class="object-related-objects-list">
+            
+            {% regroup articles by magazine_section.section_name as articles_by_section %}
+            {% for section in articles_by_section %}
+                <article class="magazine-issue-toc-entry">
+
+                    <header>
+                        {% if section.grouper %}
+                            <h3 id="{{ section.grouper }}">{{ section.grouper }}</h3>
+                        {% else %}
+                            <h3>More In This Issue</h3>
+                        {% endif %}
+                    </header>
+        
+                    {% for item in section.list %}
+                        {% if issue.is_from_the_archive %}
+                            <article class="magazine-issue-toc-entry-item">
+                                {% url archive_article_view issue.magazine.slug issue.issue_year issue.slug item.slug as article_url %}
+                                <header>
+                                    <h4><a href="{{ article_url }}">{{ item.title }}</a></h4>
+                                    {% if item.page_number %}<h5> / {{ item.page_number }}</h5>{% endif %}
+                                </header>
+                                <p>
+                                    {{ item.stripped_summary|safe }}
+                                </p>
+                            </article>
+                        {% else %}
+                            {% with item as object %}
+                                {% include "base/_object_list_item.html" %}
+                            {% endwith %}
+                        {% endif %}
+                    {% endfor %} 
+                
+                </article>
+            {% endfor %}
+            
+        </section>
+        
+    {% endif %}
+
+{% endblock%}
+
+{% block aside %}
+    {% include "base/_object_asides_combo.html" %}
+{% endblock %}

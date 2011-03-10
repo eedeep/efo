@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% if is_internal %}
+    <section id="internal-site-switch">
+        <form action="{% url colophon_site_switch %}" method="post">
+        {% csrf_token %}
+        <select onchange="this.form.submit();" name="site_id">
+            {% for site in sites %}
+                <option value="{{ site.id }}" {% if site == current_site %}selected=selected{% endif %}>
+                    {{ site.name }}
+                </option>
+            {% endfor %}
+        </select>
+        </form>
+    </section>
+{% endif %}

@@ -1,0 +1,61 @@
+## migrate
+
+python manage.py migrate <app>
+
+# recreate fixtures
+python manage.py dumpdata articles account auth colophon comments events features flatpages images organisations profiles projects taggit topics sites  --indent=4 > fixtures/data.json
+
+
+## media
+# working from the project root
+tar -c -f fixtures/media-files.tar -C site_media/media files
+
+## push
+
+hg push
+
+## deploy (dev)
+
+hg push
+
+# deployment server
+ssh root@architecturenow.com.au
+cd /home/archmedia/webapps/dev.architecturenow/anow
+hg pull
+hg update -C
+
+# development machine
+hg pull
+hg merge
+hg commit -m "merge"
+hg push ?
+
+# install
+virtualenv pinax-env --no-site-packages
+source pinax-env/bin/activate
+pip install Pinax
+hg clone https://bitbucket.org/reuten/anow/
+darylantony
+<password>
+pip install -r anow/requirements/project.txt
+cd anow
+python manage.py syncdb --noinput --migrate
+python manage.py loaddata fixtures/data.json
+python manage.py build_static --noinput  
+
+
+mkdir site_media/media; tar -xvf fixtures/media.tar -C site_media/media
+mkdir site_media/media
+cp fixtures/media.tar site_media/media/media.tar
+cd site_media/media/
+rm media.tar 
+cd ../../
+
+python manage.py runserver --adminmedia=site_media/static/admin/
+
+wget ftp://180.235.129.156/home/archmedia
+wget ftp://root@180.235.129.156/home/archmedia/webapps/dev.architecturenow/anow/site_media/media/files/*.*
+
+
+# ssh onto media server, zip up media, download and unzip
+# package up pinax-designer-theme in pypi

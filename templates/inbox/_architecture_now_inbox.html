@@ -1,0 +1,10 @@
+<section id="architecture-now-inbox">
+
+   	<h4>Weekly Newsletter</h4>
+	<p>Stay up to date with our weekly newsletter.</p>
+    <form action="{% url inbox_subscribe %}" method='post'>
+        {% csrf_token %}
+        <input type="text" name="email-address" value="" placeholder="Your email address" id="email">
+        <input type="submit" name="subscribe" value="Join" id="subscribe">
+    </form>
+</section>

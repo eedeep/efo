@@ -1,0 +1,23 @@
+# project.txt is a pip requirements file which describes the distributions
+# required by your project to run.
+
+--requirement=base.txt
+
+# Put project-specific requirements here.
+# See http://pip-installer.org/requirement-format.html for more information.
+
+BeautifulSoup==3.2.0
+django-admin-tools==0.3.0
+django-easy-maps==0.7
+django-extensions
+django-filebrowser==3.1
+django-grappelli==2.2
+django-mailchimp==0.1.27
+django-popularity==0.2
+django-taggit==0.9.1
+geopy==0.94
+PIL==1.1.7
+python-dateutil==1.2
+redis==2.2.2
+sorl-thumbnail==11.01
+django-endless-pagination

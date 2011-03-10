@@ -1,0 +1,7 @@
+{% if topics %}
+    <ul>
+    {% for topic in topics %}
+        <li><a href="{% url topic_view topic.tag.slug %}">{{ topic }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}

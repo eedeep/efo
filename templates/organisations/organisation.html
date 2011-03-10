@@ -1,0 +1,67 @@
+{% extends "organisations/base.html" %}
+{% load i18n %}
+
+{% block head_title %}
+    {% with organisation as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with organisation as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} organisation{% endblock %}
+
+{% block body %}
+    
+    {% with organisation as object %}
+    
+    {% include "base/_object_details.html" %}
+    
+    {% include "base/_object_tags.html" %}
+    
+    {% include "base/_object_contact_details.html" %}
+        
+    {% endwith %}
+    
+    {# {% if projects %} #}
+    {#    <section id="organisation-projects" class="objects-list"> #}
+    {#        <header> #}
+    {#          <h3>Projects</h3> #}
+    {#      </header> #}
+    {#      {% with projects as objects %} #}
+    {#          {% include "base/_object_simple_list.html" %} #}
+    {#      {% endwith %} #}
+    {#    </section> #}
+    {#    {% endif %} #}
+    
+    {% if articles %}
+    <section id="object-list" class="organisation-projects-articles object-related-functions">
+        <header>
+    		<h3>Related articles</h3>
+    	</header>
+    	{% with articles as objects %}
+        	{% include "base/_object_simple_list.html" %}
+    	{% endwith %}
+    </section>
+    {% endif %}
+    
+    {# {% if organisation.tags.all %} #}
+    {# {% with organisation as object %} #}
+    {#     {% include "base/_object_topics_tags_list.html" %} #}
+    {# {% endwith %} #}
+    {# {% endif %} #}
+    
+{% endblock%}
+
+{% block aside %}
+    
+    {% with organisation as object %}
+    {% include "base/_object_asides_combo.html" %}
+    {% endwith %}
+    
+{% endblock %}

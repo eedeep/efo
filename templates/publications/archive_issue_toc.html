@@ -1,0 +1,25 @@
+{% extends "publications/base_issue_toc.html" %}
+
+{% block section_content %}
+    {% regroup articles by magazine_section.section_name as articles_by_section %}
+    {% for section in articles_by_section %}
+            {% if section.grouper %}
+                <h3 id="{{ section.grouper }}">
+                    {{ section.grouper }}
+                </h3>
+            {% else %}
+                <h3 id="MoreInThisIssue">
+                    More In This Issue
+                </h3>
+            {% endif %}
+        {% for item in section.list %}
+            <li>
+                {% url archive_article_view issue.magazine.slug issue.issue_year issue.slug item.slug as article_url %}
+                <a href="{{ article_url }}">{{ item.title }}</a>
+                <p>
+                    {{ item.stripped_summary|safe }}
+                </p>
+            </li>
+        {% endfor %} 
+    {% endfor %} 
+{% endblock %}

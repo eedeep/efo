@@ -1,0 +1,41 @@
+{% extends "events/base.html" %}
+{% load thumbnail %}
+
+{% block head_title %}
+    {% with organisations as objects %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with organisations as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} organisations{% endblock %}
+
+{% block body %}
+    <section id="object-list" class="organisations">
+	    <header id="object-list-header">
+    		<h1>Companies</h1>
+    		{% with organisations|first as object %}
+    		{% include "base/_object_list_filter.html" %}
+    		{% endwith %}
+    	</header>
+    	{% with organisations as objects %}
+            {% include "base/_object_list.html" %}
+        {% endwith %}
+    </section>
+{% endblock%}
+
+{% block aside %}
+
+    <section class="ads">
+        {% include "ads/island_300_225.html" %}
+    </section>
+    
+    {% include "base/_architecture_inbox.html" %}
+    
+{% endblock %}

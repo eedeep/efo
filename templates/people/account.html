@@ -1,0 +1,51 @@
+{% extends "people/base.html" %}
+{% load i18n %}
+
+{% block body_class %}{{ block.super }} person-account{% endblock %}
+
+{% block body %}
+    
+    <section id="person-account" class="{{ person.person_type|lower }}">
+        <header>
+            <h1>Your Account</h1>
+        </header>
+        
+        <hr>
+        
+        <div id="person-account-photo">
+        {% with person as object %}
+            {% include "base/_object_feature_image.html" %}
+        {% endwith %}
+        
+        {% if person.person_type != 'Contributor' %}
+            <div id="person-account-change-photo"><a href="{% url person_avatar person.user.username %}">&raquo; Change your photo</a></div>
+        {% endif %}
+        </div>
+        
+        {% if person.person_type == 'Contributor' %}
+        <section id="person-account-details">
+            {% include "people/_person_details.html" %}
+        </section>  
+        {% endif %}
+        
+        {% include "profile/_profile_form.html" %}
+    
+    </section>
+    
+    <section id="person-account-newsletter-opt-in">
+        <header>
+            <h3>Stay up to date</h3>
+        </header>
+        <form id="newsletter-opt-in-form">
+            {#  @@@ Checking this box sets the value of a hidden field in the account form #}
+            <input type="checkbox" id="newsletter-opt-in-checkbox"><label id="newsletter-opt-in-label" for="newsletter-opt-in-checkbox`">Subscribe me to the weekly newsletter</label>
+        </form>
+    </section>
+    
+{% endblock%}
+
+{% block aside %}
+    
+
+    
+{% endblock %}

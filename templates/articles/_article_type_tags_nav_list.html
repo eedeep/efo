@@ -1,0 +1,22 @@
+{% spaceless %}
+
+{% if article_type_tags %}
+
+    <li>
+        {% if current_tag %}<a href="{% url articles_article_type article_type.slug %}">{% endif %}
+            All
+        {% if current_tag %}</a>{% endif %}
+    </li>
+    {% for tag in article_type_tags %}
+        <li>
+        
+            {% if not tag == current_tag %}
+                <a href="{% url articles_article_type_tag tag.current_article_type.slug tag.slug %}">{{ tag|title }}</a>
+            {% else %}
+                {{ tag|title }}
+            {% endif %}
+        </li>
+    {% endfor %}
+    
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,22 @@
+{% extends "publications/base_issue_toc.html" %}
+{% load thumbnail %}
+
+{% block section_content %}
+    {% regroup articles by magazine_section.section_name as articles_by_section %}
+    {% for section in articles_by_section %}
+        <section id="object-list" class="articles">
+            <h3>
+                {% if section.grouper %}
+                    {{ section.grouper }}
+                {% else %}
+                    More In This Issue
+                {% endif %}
+            </h3>
+            {% for item in section.list %}
+                {% with item as object %}
+                    {% include "base/_object_list_item.html" %}
+                {% endwith %}
+            {% endfor %} 
+        </section>
+    {% endfor %} 
+{% endblock %}

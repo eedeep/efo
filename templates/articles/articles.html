@@ -1,0 +1,61 @@
+{% extends "articles/base.html" %}
+{% load thumbnail %}
+{% load humanize %}
+{% load articles_tags %}
+
+{% block head_title %}
+    {% with articles as objects %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with articles as objects %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} articles{% endblock %}
+
+{% block body %}
+    
+    <section id="object-list" class="articles">
+	    <header id="object-list-header">
+    		<h1>
+    		    {% if article_type %}
+    		        {% if article_type.name_plural %}
+    		            {{ article_type.name_plural }}
+    		        {% else %}
+    		            {{ article_type.name }}
+    		        {% endif %}
+    		    {% else %}
+    		        {{ article_type_section }}
+    		    {% endif %}
+    		</h1>
+    		<!-- {% include "base/_object_list_filter.html" %} -->
+    		{% if article_type %}
+    		<nav id="object-list-tag-nav">
+    		    <ul>
+    		        {% if current_tag %}
+    		            {% article_type_tags_nav_list article_type current_tag %}
+    		        {% else %}
+    		            {% article_type_tags_nav_list article_type %}
+    		        {% endif %}
+    		    </ul>
+    		</nav>
+    		{% endif %}
+    	</header>
+    	{% with articles as objects %}
+            {% include "base/_object_list.html" %}
+        {% endwith %}    
+    </section>
+{% endblock%}
+
+{% block aside %}
+
+    {% with articles as objects %}
+    {% include "base/_objects_asides_combo.html" %}
+    {% endwith %}
+    
+{% endblock %}

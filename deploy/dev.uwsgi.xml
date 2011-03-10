@@ -1,0 +1,11 @@
+<uwsgi>
+    <pythonpath>/home/archmedia/webapps/dev.architecturenow/anow/</pythonpath>
+    <pythonpath>/home/archmedia/webapps/dev.architecturenow/anow/deploy/</pythonpath>
+    <pythonpath>/home/archmedia/webapps/dev.architecturenow/pinax-env/lib/python2.6/site-packages/</pythonpath>
+    <socket>:59000</socket>
+    <home>/home/archmedia/webapps/dev.architecturenow/pinax-env/</home>
+    <app mountpoint="/">
+        <script>wsgi</script>
+    </app>
+    <chmod/>
+</uwsgi>

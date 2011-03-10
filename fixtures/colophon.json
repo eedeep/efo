@@ -1,0 +1,88 @@
+[
+    {
+        "pk": 1, 
+        "model": "colophon.country", 
+        "fields": {
+            "name": "Australia", 
+            "abbrieviation": "AU"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "colophon.country", 
+        "fields": {
+            "name": "New Zealand", 
+            "abbrieviation": "NZ"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "colophon.sitegroup", 
+        "fields": {
+            "name": "Urbis", 
+            "slug": "urbis"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "colophon.sitegroup", 
+        "fields": {
+            "name": "Architecture Now", 
+            "slug": "architecture-now"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "colophon.siteprofile", 
+        "fields": {
+            "name": "Architecture Now", 
+            "country": 2, 
+            "site": 2, 
+            "abbrieviation": "ANOW", 
+            "slug": "architecture-now-nz", 
+            "site_group": 2
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "colophon.siteprofile", 
+        "fields": {
+            "name": "Architecture Now", 
+            "country": 1, 
+            "site": 1, 
+            "abbrieviation": "ANOW", 
+            "slug": "architecture-now-au", 
+            "site_group": 2
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "colophon.siteprofile", 
+        "fields": {
+            "name": "Urbis", 
+            "country": 2, 
+            "site": 3, 
+            "abbrieviation": "URBIS", 
+            "slug": "urbis-nz", 
+            "site_group": 1
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "colophon.publisher", 
+        "fields": {
+            "country": "AU", 
+            "name": "Architecture Now", 
+            "short_name": "ANow"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "colophon.publisher", 
+        "fields": {
+            "country": "NZ", 
+            "name": "Architecture Now", 
+            "short_name": "ANow"
+        }
+    }
+]

@@ -1,0 +1,1 @@
+VERBOSE_APP_LABEL = "News Articles"

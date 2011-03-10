@@ -1,0 +1,33 @@
+{% load thumbnail %}
+
+<figure class="object-inline-figure">
+    
+    {% thumbnail inline_image.image "300" as object_image %}
+        {% include "base/_object_thumbnail_image.html" %}
+    {% endthumbnail %}
+    
+    {% if inline_image.caption or inline_image.user_credit or inline_image.custom_credit  %}
+    <figcaption class="object-inline-figcaption">{% spaceless %}
+        {% if inline_image.caption %}
+        <span class="object-inline-figcaption-caption">{{ inline_image.caption }}</span>
+        {% endif %}
+
+    {% if inline_image.user_credit or inline_image.custom_credit  %}
+        <span class="credits">&nbsp;Image:&nbsp;
+        {% with inline_image.user_credit as user_credit %}
+        {% if user_credit %}
+        <span class="object-inline-figcaption-caption-user-credit"><a href="{{ user_credit.get_absolute_url }}">{{ user_credit.get_full_name }}</a></span>{% if inline_image.custom_credit %},&nbsp;{% endif %}
+        {% endif %}
+        {% endwith %}
+
+        {% if inline_image.custom_credit %}
+        <span class="object-inline-figcaption-caption-custom-credit">{{ inline_image.custom_credit }}</span>
+        {% endif %}
+        </span>
+    {% endif %}
+    
+    {% endspaceless %}</figcaption>
+    
+    {% endif %}
+    
+</figure>

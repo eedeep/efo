@@ -1,0 +1,21 @@
+{% extends "tags/base.html" %}
+
+{% load thumbnail %}
+
+{% block body_class %}{{ block.super }} tag{% endblock %}
+
+{% block body %}
+    <section id="object-list" class="articles">
+	    <header id="object-list-header">
+    		<h1>Tag: {{ tag|capfirst }}</h1>
+            {# {% include "base/_object_list_filter.html" %} #}
+    	</header>
+        {% with tagged_objects as objects %}
+            {% include "base/_object_simple_list.html" %}
+        {% endwith %}
+    </section>
+{% endblock%}
+
+{% block aside %}
+    {% include "base/_object_asides_combo.html" %}
+{% endblock %}

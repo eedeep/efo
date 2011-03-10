@@ -1,0 +1,5428 @@
+/*@import url(/site_media/static/css/lesser/settings.less);*/
+/*@import url(/site_media/static/css/lesser/reset.less);*/
+/*@import url(/site_media/static/css/lesser/em-grid.less);*/
+/*@import url(/site_media/static/css/lesser/forms.less);*/
+/*@import url(/site_media/static/css/lesser/typography.less);*/
+/*@import url(/site_media/static/css/lesser/library.less); deprecated in favour of including under Styling Mixins */
+/*@import url(/site_media/static/css/jquery.ui.less);*/
+/*@import url(/site_media/static/css/mixins.less);*/
+/* HTML 5 Reset
+----------------------------------------------------------------*/
+/* 
+    html5doctor.com Reset Stylesheet
+    v1.6.1
+    Last Updated:2010-09-17
+    Author:Richard Clark - http://richclarkdesign.com 
+    Twitter:@rich_clark
+    */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+nav ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+input, select {
+  vertical-align: middle;
+}
+/* Settings
+------------------------------------------------------------ */
+/* Fonts */
+/* Colors
+------------------------------------------------------------ */
+/* Styling Mixins
+------------------------------------------------------------ */
+/* color */
+.quiet {
+  color: #666;
+}
+.loud {
+  color: #000;
+}
+.highlight {
+  background: #ff0;
+}
+.added {
+  background: #060;
+  color: #fff;
+}
+.removed {
+  background: #900;
+  color: #fff;
+}
+/* display */
+.hide {
+  display: none;
+}
+.show {
+  display: inherit;
+}
+/* buttons & links */
+/* borders */
+/* default border style */
+/* border utilities */
+/* rounded corners */
+/* tabs */
+/* horizontal rule borders */
+/* lists */
+/* turn a ul list into a @separator delimited nav list */
+/* utilities */
+/* fixes */.clearfix, .clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+/* 
+            apply this to an :after pseudo element
+            e.g.
+            element:after{.clearfix();}
+        */
+/* graphic elements */
+/* define graphic elements such as 'buttons' here */
+/* Grids & Layout
+------------------------------------------------------------ */
+/* Old settings - to be deprecated
+    ---------------------------------- */
+/* Major Grid
+    ---------------------------------- */
+/* site body */
+/* main content column */
+/* aside column */
+/* 
+            Major layout areas are separated by the layout gutter
+            which is slightly larger, at 15px, than the section or
+            aside gutter, at 10px.
+        */
+/*
+            ANow does not utilize a site-wide grid, but two smaller grids
+            in the main 'section' column, and the aside, as defined below.
+        */
+/* Minor Grids
+    ---------------------------------- */
+/*
+            The following grid parameters are defined here as a
+            useful reference, though specific 'px' values
+            will/may be used as needed.
+        */
+/* Sections 
+        -------------------------------------------------- */
+/* or 640px */
+/* 640px / 16 = 40px */
+/* 40px */
+/* 20px */
+/* 
+            Ideally, line-height is divisible into
+            the row height, which sets up the possiblity
+            for verticle flow
+        */
+/*
+            For 'minor' listing areas in the section body,
+            particularly the homepage features, fontsize is
+            typically 12px, and a line-height of 18px
+            is better suited.  Currently, this is visually
+            the same as the @aside-line-height
+        */
+/* Aside
+        ---------------------------------------------- */
+/* or 300px */
+/* 300px / 10 = 30px */
+/* @aside-column-width; */
+/* (@aside-row-height/2) */
+/*
+            A note on column/row width and gutters.
+            
+            The gutter is applied in halves, to either side of the column,
+            or above and below the row.  So a column gutter of 10px, will be applied
+            as margin-left: 5px; & margin-right: 5px;
+            
+            This way, the effective spacing between columns (or rows) is 10px.
+        */
+/* Grid & Layout mixins
+    ---------------------------------- */
+/* Abstracted for ANow from em-grid.less & grid.less */
+.grid-element {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+}
+.alpha {
+  margin-left: 0;
+}
+/* first column */
+.omega {
+  margin-right: 0;
+}
+/* last column */
+.first {
+  margin-left: 0;
+}
+.last {
+  margin-right: 0;
+}
+.top {
+  margin-top: 0;
+}
+.bottom {
+  margin-bottom: 0;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Vertical flow & Typography
+    ----------------------------------- */
+/* 
+            Typography constants that can help setup vertical flow.
+            Only styling that effects vertical flow should go here.
+        */
+/* Site Wide */
+html {
+  font-size: 100.01%;
+}
+body {
+  font-size: 12px;
+}
+p img.left {
+  float: left;
+  margin: 40px 20px 40px 0;
+  padding: 0;
+}
+p img.right {
+  float: right;
+  margin: 40px 0 20px 40px;
+}
+blockquote {
+  margin: 40px;
+  line-height: 40px;
+}
+address {
+  margin: 0 0 40px;
+}
+pre {
+  margin: 40px 0;
+  white-space: pre;
+}
+pre, code, tt {
+  font: 12px 'andale mono', 'lucida console', monospace;
+  line-height: 40px;
+}
+li ul, li ol {
+  margin: 0;
+}
+ul, ol {
+  margin: 0 20px 40px 0;
+  padding-left: 40px;
+}
+dl {
+  margin: 0 0 40px 0;
+}
+dd {
+  margin-left: 40px;
+}
+::selection {
+  background: #ffff00;
+}
+::-moz-selection {
+  background: #ffff00;
+}
+/* In section styles, generally in the main body column */
+section h1 {
+  /* 
+                Extends on inline to add row gutter support
+                for block text
+            */
+
+  /* 
+                Sets the styling of a inline text or
+                block text without a gutter to work 
+                with the grid vertical flow
+                
+                @lines-per-row should be set to a sensible
+                default, depending on the row-height
+            */
+  /*
+                Sets the line-height of block text to work within rows
+            */
+
+  line-height: 32px;
+  font-size: 30px;
+  /* help block text to be recognised as .row() */
+
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  /* Generally the h1 is a .top() row */
+
+}
+section h2 {
+  /* 
+                Extends on inline to add row gutter support
+                for block text
+            */
+
+  /* 
+                Sets the styling of a inline text or
+                block text without a gutter to work 
+                with the grid vertical flow
+                
+                @lines-per-row should be set to a sensible
+                default, depending on the row-height
+            */
+  /*
+                Sets the line-height of block text to work within rows
+            */
+
+  line-height: 40px;
+  font-size: 24px;
+  /* help block text to be recognised as .row() */
+
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  /* Same for h2 */
+
+}
+section h3 {
+  /* 
+                Extends on inline to add row gutter support
+                for block text
+            */
+
+  /* 
+                Sets the styling of a inline text or
+                block text without a gutter to work 
+                with the grid vertical flow
+                
+                @lines-per-row should be set to a sensible
+                default, depending on the row-height
+            */
+  /*
+                Sets the line-height of block text to work within rows
+            */
+
+  line-height: 20px;
+  font-size: 18px;
+  /* help block text to be recognised as .row() */
+
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  /* Same for h2 */
+
+  font-weight: normal;
+}
+section hr {
+  height: 0;
+  margin: 10px 0;
+}
+section p {
+  /* 
+                Extends on inline to add row gutter support
+                for block text
+            */
+
+  /* 
+                Sets the styling of a inline text or
+                block text without a gutter to work 
+                with the grid vertical flow
+                
+                @lines-per-row should be set to a sensible
+                default, depending on the row-height
+            */
+  /*
+                Sets the line-height of block text to work within rows
+            */
+
+  line-height: 20px;
+  font-size: 12px;
+  /* help block text to be recognised as .row() */
+
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+section .object-introduction {
+  /*
+                Instead of specifying @lines-per-row --
+                specify a more explicit @line-height,
+                that won't change depending on @row-height
+            */
+
+  font-size: 14px;
+  line-height: 22px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+section .object-content p {
+  /*
+                Instead of specifying @lines-per-row --
+                specify a more explicit @line-height,
+                that won't change depending on @row-height
+            */
+
+  font-size: 14px;
+  line-height: 22px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+section .object-excerpt {
+  /* font-size 12px, line-height: 18px, row-gutter: 10px below */
+
+  /*
+                Instead of specifying @lines-per-row --
+                specify a more explicit @line-height,
+                that won't change depending on @row-height
+            */
+
+  font-size: 13px;
+  line-height: 18px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* In Aside styles */
+aside {
+  line-height: 18px;
+  /* default 18px */
+
+}
+aside hr {
+  margin-bottom: 20px;
+}
+aside > section {
+  /* 
+            default styling to sections that a direct
+            decendants only of aside
+            */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  /* float: left; display: inline; */
+
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* Horizontal flow
+    -----------------------------*/
+/* 
+            In addtion to columns for horizontal flow
+            there are some more minor sub-grid horizontal
+            spacings that occur in a design.
+        */
+/* equivalent to a &nbs; */
+/* Mixins */
+/* Horizontal flow default stylings */
+/* Layout
+    -----------------------------*/
+/* 
+        Define the major layout specs here, such as:
+            body, #body, asides, header, site body etc.
+            
+        Specific styling, to the content within these markup areas
+        should be done further below, in respective styling sections. */
+body {
+  width: 970px;
+  margin: 0 auto;
+}
+body:after {
+  /* Apply .clearfix by perishable */
+
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+#main-header {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  width: 970px;
+  margin: 10px 0px 20px 0px;
+  /* should top & bottom be @layout-gutter? */
+
+}
+/* section#body -- the main content column */
+#body {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  width: 640px;
+  margin: 0;
+}
+aside {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  width: 300px;
+  margin: 0;
+  float: left;
+  margin-left: 30px;
+}
+aside section {
+  width: 300px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+aside section header {
+  margin-left: 0;
+  margin-right: 0;
+}
+#main-footer {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  width: 970px;
+  margin: 20px 0px;
+}
+/* Typography
+------------------------------------------------------------ */
+/*
+        Typography mixins */
+/* Header */
+/* 
+        Typography styles that utilise, where possible, 
+        the Vertical flow settings above. 
+    */
+/* Site wide */
+a.section-more-link {
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+}
+a {
+  color: #3779b4;
+  text-decoration: none;
+}
+body {
+  color: #000000;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: always 5px;
+}
+dd {
+  margin-left: 0;
+}
+dt {
+  font-size: .9em;
+  font-weight: bold;
+}
+h1 {
+  color: #000000;
+}
+h2 {
+  font-size: 24px;
+}
+h2 a {
+  color: #000000;
+}
+h3 {
+  font-size: 20.004px;
+}
+h3 a {
+  color: #000000;
+}
+/* global body section styles */
+section#body #object-introduction * {
+  /*
+                Instead of specifying @lines-per-row --
+                specify a more explicit @line-height,
+                that won't change depending on @row-height
+            */
+
+  font-size: 14px;
+  line-height: 22px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+/* global aside styles */
+aside ul {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 15px;
+  color: #b3b3b3;
+  /*
+                    Override the color: @dark-grey-1
+                    above.  Is there a way to specify
+                    'no-inherit'?
+                */
+
+}
+aside ul li {
+  font-size: 13px;
+}
+aside ul li * {
+  color: #191919;
+}
+aside ul li a {
+  color: #3779b4;
+}
+/* Main Header
+------------------------------------------------------------ */
+#main-header {
+  border-top: 1px solid #e1e1e1;
+  /* border-top:1px solid #e5e5e5;*/
+
+  border-bottom: 3px solid #000000;
+  /* border-bottom:3px solid #000;*/
+
+  padding: 10px 0;
+  position: relative;
+}
+#main-header #logo a {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 45px;
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 640px;
+  margin-left: 0;
+  margin-right: 0;
+  background: url('/site_media/static/img/anow-logo.png') 0 -1px no-repeat;
+  text-indent: -1000px;
+}
+#main-header nav#main {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 0px;
+  margin-right: 0px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 13px;
+  width: 640px;
+}
+#main-header nav#main ul {
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* 
+                    slight adjustment to lift text baseline
+                    could be better implemented with vertical-align?
+                */
+
+}
+#main-header nav#main ul li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+#main-header nav#main ul li:first-child {
+  margin-left: 0;
+}
+#main-header nav#main ul li:last-child {
+  margin-right: 0;
+}
+#main-header nav#main ul li:after {
+  content: '';
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 0;
+}
+#main-header nav#main ul li:last-child:after {
+  display: none;
+}
+#main-header nav#main ul li {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+#main-header nav#main ul li a {
+  color: #000000;
+  font-family: Arial, sans-serif;
+}
+#main-header #account {
+  float: right;
+}
+#main-header #account .login {
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+#main-header #account .login a {
+  color: #4d4d4d;
+  vertical-align: top;
+}
+#main-header #account #account-links {
+  line-height: -20px;
+  display: inline;
+}
+#main-header #account img {
+  vertical-align: top;
+}
+#main-header #search {
+  width: 225px;
+  height: 25px;
+  position: absolute;
+  bottom: 18px;
+  right: 0px;
+}
+#main-header #search #search-form {
+  height: 26px;
+  width: 220px;
+  float: right;
+}
+#main-header #search #search-form #q {
+  border: none;
+  background: #f1f1f1;
+  color: #4d4d4d;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  height: 22px;
+  line-height: 13px;
+  width: 205px;
+  padding: 5px 8px 0px;
+  float: left;
+}
+#main-header #search #search-form #find_submit {
+  background: url(/site_media/static/img/search-glass.png) no-repeat;
+  border: 0px;
+  cursor: pointer;
+  height: 0px;
+  overflow: hidden;
+  padding-top: 12px;
+  width: 14px;
+  margin-left: -21px;
+  margin-top: 5px;
+}
+#main-header #search #search-form .loading {
+  top: 4px;
+  right: 6px;
+  display: none;
+  position: absolute;
+}
+/* End: Main Header ------------------------------------- */
+/* Body Section & Sections
+------------------------------------------------------------ */
+#content {
+  position: relative;
+  width: 970px;
+  display: block;
+  overflow: hidden;
+  /* Create a divider line between body & aside */
+
+}
+#content #body:after {
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  width: 169px;
+  height: 99.9%;
+  border-right: 1px solid #e1e1e1;
+  z-index: -99;
+}
+/* <section id="body" class="{{ object.content-type }}"> [or {{ object.article_type }}] */
+#body {
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  width: 640px;
+}
+#body #object-meta > * {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 12px;
+  margin: 10px auto;
+}
+#body #object-meta {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-bottom: 0;
+  display: inline-block;
+  width: 640px;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  font-family: Arial, sans-serif;
+}
+#body #object-meta .object-meta-article-type {
+  float: left;
+  margin-right: 5px;
+}
+#body #object-meta .object-meta-article-type a {
+  text-transform: uppercase;
+}
+#body #object-meta .object-meta-published {
+  margin-right: 5px;
+  float: left;
+}
+#body #object-meta .object-meta-comment-count {
+  background-image: url(/site_media/static/img/comment.png);
+  background-position: 0px -1px;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  text-align: right;
+  width: 30px;
+  float: left;
+}
+#body #object-meta .object-credits-authors {
+  float: left;
+  margin-right: 5px;
+}
+#body #object-meta .social-share-icons-short {
+  float: right;
+  margin-right: -20px;
+  margin-top: 6px;
+}
+#body #object-credits {
+  color: #000000;
+}
+#body #object-credits .object-credits-authors {
+  display: block;
+  margin-bottom: 10px;
+  float: left;
+}
+#body #object-credits .object-credits-authors a {
+  text-transform: none;
+}
+#body #object-credits .object-credits-photographers {
+  display: block;
+  clear: left;
+  float: left;
+  margin-bottom: 10px;
+}
+#body #object-credits .object-credits-photographers a {
+  text-transform: none;
+}
+#body #object-source {
+  display: block;
+  clear: left;
+  float: left;
+}
+#body #object-tags,
+#body #comments,
+#body #comment-login,
+#body #object-source,
+#body #object-credits,
+#body #object-share-links {
+  color: #000;
+  width: 640px;
+  padding: 0px 0px 20px;
+}
+#body #object-tags p,
+#body #comments p,
+#body #comment-login p,
+#body #object-source p,
+#body #object-credits p,
+#body #object-share-links p,
+#body #object-tags span,
+#body #comments span,
+#body #comment-login span,
+#body #object-source span,
+#body #object-credits span,
+#body #object-share-links span,
+#body #object-tags div,
+#body #comments div,
+#body #comment-login div,
+#body #object-source div,
+#body #object-credits div,
+#body #object-share-links div {
+  font-size: 14px;
+}
+#body #object-tags a,
+#body #comments a,
+#body #comment-login a,
+#body #object-source a,
+#body #object-credits a,
+#body #object-share-links a {
+  color: #3779b4;
+}
+#body #comment-login {
+  float: left;
+}
+#body #object-share-links {
+  border-top: solid 1px #e1e1e1;
+  float: left;
+}
+#body #object-share-links header {
+  display: block;
+  float: left;
+  height: 40px;
+}
+#body #object-share-links .social-share-icons {
+  display: block;
+  float: left;
+  clear: left;
+  height: 20px;
+  width: 640px;
+  margin-left: -2px;
+  margin-top: 3px;
+  font-size: 10px;
+}
+#body #object-share-links .social-share-icons a {
+  margin-right: 10px;
+}
+#body #object-tags {
+  border: none !important;
+  display: block;
+  float: left;
+}
+#body #object-tags .object-tag-label {
+  margin-bottom: 5px;
+}
+#body #object-tags a {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 13px;
+  background-color: #f1f1f1;
+  padding: 2px 4px 2px 4px;
+  margin-right: 2px;
+  line-height: 25px;
+}
+#body #object-tags a:hover {
+  text-decoration: underline;
+}
+#body #comments {
+  border-top: solid 1px #e5e5e5;
+  padding-bottom: 0px;
+}
+#body #comments header h3 {
+  background: url('/site_media/static/img/comment.png') 0 15px no-repeat;
+  padding-left: 25px;
+}
+#body #comment-form input {
+  background-color: #000;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  height: 34px;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  padding: 0px 10px;
+  font-size: 13px;
+  line-height: 13px;
+  cursor: pointer;
+  cursor: hand;
+  border: 1px solid #000;
+  font-weight: bold;
+  height: 28px;
+}
+.article-type, .object-type, .feature-type {
+  border-right: 1px solid #191919;
+  color: #000000;
+  font-weight: bold;
+  /*        font-family: @font-family;
+        font-size: 11px;*/
+
+  margin-left: 0px;
+  margin-right: 3px;
+  padding-left: 0px !important;
+  padding: 0px 5px 0px 0px;
+}
+/* Object Detail
+    ---------------------------------------------------- */
+/* 
+            Object detail styles 
+            <section id="object" class="{{ object.content_type/article_type }}">
+        */
+#object article .object-content .object-inline-figure {
+  border-bottom: 1px solid #d6d6d6;
+  display: inline-block;
+  float: right;
+  width: 300px;
+  margin-left: 20px;
+}
+#object article .object-content .object-inline-figure img {
+  width: auto;
+}
+#object article .object-content .object-inline-figure figcaption {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  color: #262626;
+  margin-top: 10px;
+}
+#object article .object-content .object-inline-figure figcaption p {
+  font-size: 11px;
+  line-height: 14px;
+}
+#object article footer {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#object-details {
+  float: left;
+  clear: left;
+  width: 640px;
+  padding-bottom: 15px;
+}
+#object-details .object-location-map {
+  float: left;
+  width: 312px;
+  margin-right: 20px;
+}
+#object-details .object-location-details {
+  float: left;
+}
+#object-details .object-location-details p, #object-details .object-location-details h4, #object-details .object-location-details dl {
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: -2px;
+}
+/* Content Type Styling (article, organisation, event, etc.) 
+------------------------------------------------------------------------------------*/
+/* Organisation */
+.organisation #body #object.organisation #object-feature-image {
+  display: block;
+  float: left;
+  margin-top: 20px;
+  width: 640px;
+}
+.organisation #body #object.organisation #object-feature-image figure img {
+  float: left;
+  width: auto;
+}
+/* Profile */
+body.profile-account, body.account {
+  padding: 0px;
+  width: 970px;
+}
+body.profile-account #body, body.account #body {
+  width: 970px !important;
+}
+body.profile-account #body header, body.account #body header {
+  border-bottom: 1px solid #000;
+}
+body.profile-account #body p, body.account #body p {
+  font-size: 14px;
+  margin-top: 18px;
+}
+body.profile-account #body p a, body.account #body p a {
+  color: #3779B4;
+}
+body.profile-account #account-signup,
+body.account #account-signup,
+body.profile-account #account-login,
+body.account #account-login {
+  width: 970px;
+}
+body.profile-account #account-signup header,
+body.account #account-signup header,
+body.profile-account #account-login header,
+body.account #account-login header {
+  width: 970px;
+  margin: 0px;
+}
+body.profile #body #profile-articles .row article header {
+  border-bottom: none;
+  /* hack! */
+
+  margin-bottom: 0px;
+}
+body.profile-account #body #profile-account {
+  width: 970px;
+}
+body.profile-account #body #profile-account header {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 40px;
+}
+body.profile-account #body #profile-account hr {
+  margin-bottom: 40px;
+}
+body.profile-account #body #profile-account #object-feature-image {
+  margin-left: 0;
+}
+body.profile-account #body #profile-account #object-feature-image figure {
+  width: 150px;
+  margin: 0px;
+}
+body.profile-account #body #profile-account #profile-account-photo {
+  float: left;
+}
+body.profile-account #body #profile-account #profile-account-photo #profile-account-change-photo {
+  clear: left;
+}
+body.profile-account #body #profile-account #profile-account-details {
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+  margin-left: 0;
+  /* @@@ shouldn't need to */
+
+  min-height: 300px;
+}
+body.profile-account #body #profile-account #profile-account-change-form {
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+}
+body.profile-account #body #profile-account.contributor #profile-account-change-form.contributor {
+  float: right;
+}
+body.profile-account #body #profile-account.member #profile-account-change-form {
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 620px;
+  margin-left: 0;
+}
+body.profile #body {
+  width: 640px;
+  margin-left: 0;
+}
+body.profile #body header {
+  margin: 0px;
+  margin-bottom: 15px;
+}
+body.profile #body header h1 {
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+body.profile #body #profile-details {
+  width: 640px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: -5px;
+}
+body.profile #body #profile-details #object-feature-image {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+}
+body.profile #body #profile-details #object-feature-image figure {
+  width: 150px;
+  margin-left: 0;
+}
+body.profile #body #profile-details #object-feature-image figure img {
+  width: auto;
+}
+body.profile #body #profile-details #profile-object-details {
+  float: left;
+}
+body.profile #body #profile-details #profile-object-details dl dt {
+  display: inline-block;
+  clear: left;
+}
+body.profile #body #profile-details #profile-object-details dl dd {
+  display: inline-block;
+}
+body.profile #body #profile-articles {
+  border-top: 1px solid #e5e5e5;
+  float: left;
+  clear: both;
+}
+body.profile #body #profile-articles article .row header {
+  border: none;
+}
+body.profile #body #profile-articles article .row header h2 {
+  border: none;
+}
+body.profile #body #profile-comments {
+  border-top: 1px solid #e5e5e5;
+}
+body.profile #body #profile-comments header {
+  border: none;
+}
+body.profile #body #profile-comments #comments {
+  border: none;
+}
+body.profile #body #profile-comments #comments .comment {
+  height: auto;
+  width: 640px;
+}
+body.profile #body #profile-comments #comments .comment p {
+  margin: 0px;
+}
+/* Object Lists
+    ---------------------------------------------------- */
+/* 
+            Object listing styles
+            <section id="object-list" class="{{ object.content_type/article_type/object.article_type.section }}">
+        
+        */
+#articles,
+#search-results,
+#editors_choices,
+#article-project-review-projects,
+#organisation-projects,
+#organisation-projects-articles,
+.objects-list,
+#object-list {
+  margin-top: -6px;
+  float: left;
+  width: 640px;
+}
+#articles header.object-list-header,
+#search-results header.object-list-header,
+#editors_choices header.object-list-header,
+#article-project-review-projects header.object-list-header,
+#organisation-projects header.object-list-header,
+#organisation-projects-articles header.object-list-header,
+.objects-list header.object-list-header,
+#object-list header.object-list-header {
+  width: 640px;
+  margin: 0px;
+}
+#articles header.object-list-header #articles-nav,
+#search-results header.object-list-header #articles-nav,
+#editors_choices header.object-list-header #articles-nav,
+#article-project-review-projects header.object-list-header #articles-nav,
+#organisation-projects header.object-list-header #articles-nav,
+#organisation-projects-articles header.object-list-header #articles-nav,
+.objects-list header.object-list-header #articles-nav,
+#object-list header.object-list-header #articles-nav,
+#articles header.object-list-header #objects-nav #articles-filter-nav,
+#search-results header.object-list-header #objects-nav #articles-filter-nav,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav,
+#object-list header.object-list-header #objects-nav #articles-filter-nav,
+#articles header.object-list-header #objects-filter-nav,
+#search-results header.object-list-header #objects-filter-nav,
+#editors_choices header.object-list-header #objects-filter-nav,
+#article-project-review-projects header.object-list-header #objects-filter-nav,
+#organisation-projects header.object-list-header #objects-filter-nav,
+#organisation-projects-articles header.object-list-header #objects-filter-nav,
+.objects-list header.object-list-header #objects-filter-nav,
+#object-list header.object-list-header #objects-filter-nav {
+  background-color: #f5f5f5;
+  position: relative;
+  display: block;
+  height: 40px;
+  margin: 20px 0;
+  width: 640px;
+  padding: 0;
+}
+#articles header.object-list-header #articles-nav ul,
+#search-results header.object-list-header #articles-nav ul,
+#editors_choices header.object-list-header #articles-nav ul,
+#article-project-review-projects header.object-list-header #articles-nav ul,
+#organisation-projects header.object-list-header #articles-nav ul,
+#organisation-projects-articles header.object-list-header #articles-nav ul,
+.objects-list header.object-list-header #articles-nav ul,
+#object-list header.object-list-header #articles-nav ul,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul,
+#articles header.object-list-header #objects-filter-nav ul,
+#search-results header.object-list-header #objects-filter-nav ul,
+#editors_choices header.object-list-header #objects-filter-nav ul,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul,
+#organisation-projects header.object-list-header #objects-filter-nav ul,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul,
+.objects-list header.object-list-header #objects-filter-nav ul,
+#object-list header.object-list-header #objects-filter-nav ul {
+  position: relative;
+  float: left;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+#articles header.object-list-header #articles-nav ul li.parent > a:after,
+#search-results header.object-list-header #articles-nav ul li.parent > a:after,
+#editors_choices header.object-list-header #articles-nav ul li.parent > a:after,
+#article-project-review-projects header.object-list-header #articles-nav ul li.parent > a:after,
+#organisation-projects header.object-list-header #articles-nav ul li.parent > a:after,
+#organisation-projects-articles header.object-list-header #articles-nav ul li.parent > a:after,
+.objects-list header.object-list-header #articles-nav ul li.parent > a:after,
+#object-list header.object-list-header #articles-nav ul li.parent > a:after,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:after,
+#articles header.object-list-header #objects-filter-nav ul li.parent > a:after,
+#search-results header.object-list-header #objects-filter-nav ul li.parent > a:after,
+#editors_choices header.object-list-header #objects-filter-nav ul li.parent > a:after,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li.parent > a:after,
+#organisation-projects header.object-list-header #objects-filter-nav ul li.parent > a:after,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li.parent > a:after,
+.objects-list header.object-list-header #objects-filter-nav ul li.parent > a:after,
+#object-list header.object-list-header #objects-filter-nav ul li.parent > a:after {
+  position: relative;
+  top: 0px;
+  left: 8px ;
+  content: "";
+  z-index: 999;
+  width: 0px;
+}
+#articles header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#search-results header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#editors_choices header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#article-project-review-projects header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#organisation-projects header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#organisation-projects-articles header.object-list-header #articles-nav ul li.parent > a:hover:after,
+.objects-list header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#object-list header.object-list-header #articles-nav ul li.parent > a:hover:after,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:hover:after,
+#articles header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+#search-results header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+#editors_choices header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+#organisation-projects header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+.objects-list header.object-list-header #objects-filter-nav ul li.parent > a:hover:after,
+#object-list header.object-list-header #objects-filter-nav ul li.parent > a:hover:after {
+  position: relative;
+  top: 0px;
+  left: 8px ;
+  content: "";
+  z-index: 999;
+  width: 0px;
+}
+#articles header.object-list-header #articles-nav ul li.parent > a:before,
+#search-results header.object-list-header #articles-nav ul li.parent > a:before,
+#editors_choices header.object-list-header #articles-nav ul li.parent > a:before,
+#article-project-review-projects header.object-list-header #articles-nav ul li.parent > a:before,
+#organisation-projects header.object-list-header #articles-nav ul li.parent > a:before,
+#organisation-projects-articles header.object-list-header #articles-nav ul li.parent > a:before,
+.objects-list header.object-list-header #articles-nav ul li.parent > a:before,
+#object-list header.object-list-header #articles-nav ul li.parent > a:before,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li.parent > a:before,
+#articles header.object-list-header #objects-filter-nav ul li.parent > a:before,
+#search-results header.object-list-header #objects-filter-nav ul li.parent > a:before,
+#editors_choices header.object-list-header #objects-filter-nav ul li.parent > a:before,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li.parent > a:before,
+#organisation-projects header.object-list-header #objects-filter-nav ul li.parent > a:before,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li.parent > a:before,
+.objects-list header.object-list-header #objects-filter-nav ul li.parent > a:before,
+#object-list header.object-list-header #objects-filter-nav ul li.parent > a:before {
+  position: relative;
+  content: "|";
+  font-weight: 200;
+  right: -43px;
+  z-index: 999;
+}
+#articles header.object-list-header #articles-nav ul li,
+#search-results header.object-list-header #articles-nav ul li,
+#editors_choices header.object-list-header #articles-nav ul li,
+#article-project-review-projects header.object-list-header #articles-nav ul li,
+#organisation-projects header.object-list-header #articles-nav ul li,
+#organisation-projects-articles header.object-list-header #articles-nav ul li,
+.objects-list header.object-list-header #articles-nav ul li,
+#object-list header.object-list-header #articles-nav ul li,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li,
+#articles header.object-list-header #objects-filter-nav ul li,
+#search-results header.object-list-header #objects-filter-nav ul li,
+#editors_choices header.object-list-header #objects-filter-nav ul li,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li,
+#organisation-projects header.object-list-header #objects-filter-nav ul li,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li,
+.objects-list header.object-list-header #objects-filter-nav ul li,
+#object-list header.object-list-header #objects-filter-nav ul li {
+  display: inline;
+  float: left;
+  list-style-type: none;
+  margin: 0 20px 0 0;
+  padding: 0;
+}
+#articles header.object-list-header #articles-nav ul li ul,
+#search-results header.object-list-header #articles-nav ul li ul,
+#editors_choices header.object-list-header #articles-nav ul li ul,
+#article-project-review-projects header.object-list-header #articles-nav ul li ul,
+#organisation-projects header.object-list-header #articles-nav ul li ul,
+#organisation-projects-articles header.object-list-header #articles-nav ul li ul,
+.objects-list header.object-list-header #articles-nav ul li ul,
+#object-list header.object-list-header #articles-nav ul li ul,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li ul,
+#articles header.object-list-header #objects-filter-nav ul li ul,
+#search-results header.object-list-header #objects-filter-nav ul li ul,
+#editors_choices header.object-list-header #objects-filter-nav ul li ul,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li ul,
+#organisation-projects header.object-list-header #objects-filter-nav ul li ul,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li ul,
+.objects-list header.object-list-header #objects-filter-nav ul li ul,
+#object-list header.object-list-header #objects-filter-nav ul li ul {
+  position: absolute;
+  background-color: #333;
+  width: 10em;
+  left: -999em;
+  z-index: 9999;
+  /*position:absolute;/*# (@row-gutter * 2) + @row-height;*/
+
+  top: 37px;
+}
+#articles header.object-list-header #articles-nav ul li ul li,
+#search-results header.object-list-header #articles-nav ul li ul li,
+#editors_choices header.object-list-header #articles-nav ul li ul li,
+#article-project-review-projects header.object-list-header #articles-nav ul li ul li,
+#organisation-projects header.object-list-header #articles-nav ul li ul li,
+#organisation-projects-articles header.object-list-header #articles-nav ul li ul li,
+.objects-list header.object-list-header #articles-nav ul li ul li,
+#object-list header.object-list-header #articles-nav ul li ul li,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li,
+#articles header.object-list-header #objects-filter-nav ul li ul li,
+#search-results header.object-list-header #objects-filter-nav ul li ul li,
+#editors_choices header.object-list-header #objects-filter-nav ul li ul li,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li ul li,
+#organisation-projects header.object-list-header #objects-filter-nav ul li ul li,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li ul li,
+.objects-list header.object-list-header #objects-filter-nav ul li ul li,
+#object-list header.object-list-header #objects-filter-nav ul li ul li {
+  background: #dddddd;
+  display: inline;
+  float: left;
+  clear: left;
+  margin: 0;
+}
+#articles header.object-list-header #articles-nav ul li ul li a,
+#search-results header.object-list-header #articles-nav ul li ul li a,
+#editors_choices header.object-list-header #articles-nav ul li ul li a,
+#article-project-review-projects header.object-list-header #articles-nav ul li ul li a,
+#organisation-projects header.object-list-header #articles-nav ul li ul li a,
+#organisation-projects-articles header.object-list-header #articles-nav ul li ul li a,
+.objects-list header.object-list-header #articles-nav ul li ul li a,
+#object-list header.object-list-header #articles-nav ul li ul li a,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li a,
+#articles header.object-list-header #objects-filter-nav ul li ul li a,
+#search-results header.object-list-header #objects-filter-nav ul li ul li a,
+#editors_choices header.object-list-header #objects-filter-nav ul li ul li a,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li ul li a,
+#organisation-projects header.object-list-header #objects-filter-nav ul li ul li a,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li ul li a,
+.objects-list header.object-list-header #objects-filter-nav ul li ul li a,
+#object-list header.object-list-header #objects-filter-nav ul li ul li a {
+  width: 8em;
+}
+#articles header.object-list-header #articles-nav ul li ul li:last-child,
+#search-results header.object-list-header #articles-nav ul li ul li:last-child,
+#editors_choices header.object-list-header #articles-nav ul li ul li:last-child,
+#article-project-review-projects header.object-list-header #articles-nav ul li ul li:last-child,
+#organisation-projects header.object-list-header #articles-nav ul li ul li:last-child,
+#organisation-projects-articles header.object-list-header #articles-nav ul li ul li:last-child,
+.objects-list header.object-list-header #articles-nav ul li ul li:last-child,
+#object-list header.object-list-header #articles-nav ul li ul li:last-child,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child,
+#articles header.object-list-header #objects-filter-nav ul li ul li:last-child,
+#search-results header.object-list-header #objects-filter-nav ul li ul li:last-child,
+#editors_choices header.object-list-header #objects-filter-nav ul li ul li:last-child,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li ul li:last-child,
+#organisation-projects header.object-list-header #objects-filter-nav ul li ul li:last-child,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li ul li:last-child,
+.objects-list header.object-list-header #objects-filter-nav ul li ul li:last-child,
+#object-list header.object-list-header #objects-filter-nav ul li ul li:last-child {
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+}
+#articles header.object-list-header #articles-nav ul li ul li:last-child a,
+#search-results header.object-list-header #articles-nav ul li ul li:last-child a,
+#editors_choices header.object-list-header #articles-nav ul li ul li:last-child a,
+#article-project-review-projects header.object-list-header #articles-nav ul li ul li:last-child a,
+#organisation-projects header.object-list-header #articles-nav ul li ul li:last-child a,
+#organisation-projects-articles header.object-list-header #articles-nav ul li ul li:last-child a,
+.objects-list header.object-list-header #articles-nav ul li ul li:last-child a,
+#object-list header.object-list-header #articles-nav ul li ul li:last-child a,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li:last-child a,
+#articles header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+#search-results header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+#editors_choices header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+#organisation-projects header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+.objects-list header.object-list-header #objects-filter-nav ul li ul li:last-child a,
+#object-list header.object-list-header #objects-filter-nav ul li ul li:last-child a {
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+}
+#articles header.object-list-header #articles-nav ul li ul li:hover,
+#search-results header.object-list-header #articles-nav ul li ul li:hover,
+#editors_choices header.object-list-header #articles-nav ul li ul li:hover,
+#article-project-review-projects header.object-list-header #articles-nav ul li ul li:hover,
+#organisation-projects header.object-list-header #articles-nav ul li ul li:hover,
+#organisation-projects-articles header.object-list-header #articles-nav ul li ul li:hover,
+.objects-list header.object-list-header #articles-nav ul li ul li:hover,
+#object-list header.object-list-header #articles-nav ul li ul li:hover,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li ul li:hover,
+#articles header.object-list-header #objects-filter-nav ul li ul li:hover,
+#search-results header.object-list-header #objects-filter-nav ul li ul li:hover,
+#editors_choices header.object-list-header #objects-filter-nav ul li ul li:hover,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li ul li:hover,
+#organisation-projects header.object-list-header #objects-filter-nav ul li ul li:hover,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li ul li:hover,
+.objects-list header.object-list-header #objects-filter-nav ul li ul li:hover,
+#object-list header.object-list-header #objects-filter-nav ul li ul li:hover {
+  background: #eeeeee;
+}
+#articles header.object-list-header #articles-nav ul li:hover ul,
+#search-results header.object-list-header #articles-nav ul li:hover ul,
+#editors_choices header.object-list-header #articles-nav ul li:hover ul,
+#article-project-review-projects header.object-list-header #articles-nav ul li:hover ul,
+#organisation-projects header.object-list-header #articles-nav ul li:hover ul,
+#organisation-projects-articles header.object-list-header #articles-nav ul li:hover ul,
+.objects-list header.object-list-header #articles-nav ul li:hover ul,
+#object-list header.object-list-header #articles-nav ul li:hover ul,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li:hover ul,
+#articles header.object-list-header #objects-filter-nav ul li:hover ul,
+#search-results header.object-list-header #objects-filter-nav ul li:hover ul,
+#editors_choices header.object-list-header #objects-filter-nav ul li:hover ul,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li:hover ul,
+#organisation-projects header.object-list-header #objects-filter-nav ul li:hover ul,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li:hover ul,
+.objects-list header.object-list-header #objects-filter-nav ul li:hover ul,
+#object-list header.object-list-header #objects-filter-nav ul li:hover ul,
+#articles header.object-list-header #articles-nav ul li.sfhover ul,
+#search-results header.object-list-header #articles-nav ul li.sfhover ul,
+#editors_choices header.object-list-header #articles-nav ul li.sfhover ul,
+#article-project-review-projects header.object-list-header #articles-nav ul li.sfhover ul,
+#organisation-projects header.object-list-header #articles-nav ul li.sfhover ul,
+#organisation-projects-articles header.object-list-header #articles-nav ul li.sfhover ul,
+.objects-list header.object-list-header #articles-nav ul li.sfhover ul,
+#object-list header.object-list-header #articles-nav ul li.sfhover ul,
+#articles header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#search-results header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#object-list header.object-list-header #objects-nav #articles-filter-nav ul li.sfhover ul,
+#articles header.object-list-header #objects-filter-nav ul li.sfhover ul,
+#search-results header.object-list-header #objects-filter-nav ul li.sfhover ul,
+#editors_choices header.object-list-header #objects-filter-nav ul li.sfhover ul,
+#article-project-review-projects header.object-list-header #objects-filter-nav ul li.sfhover ul,
+#organisation-projects header.object-list-header #objects-filter-nav ul li.sfhover ul,
+#organisation-projects-articles header.object-list-header #objects-filter-nav ul li.sfhover ul,
+.objects-list header.object-list-header #objects-filter-nav ul li.sfhover ul,
+#object-list header.object-list-header #objects-filter-nav ul li.sfhover ul {
+  left: auto;
+}
+#articles header.object-list-header #articles-nav a,
+#search-results header.object-list-header #articles-nav a,
+#editors_choices header.object-list-header #articles-nav a,
+#article-project-review-projects header.object-list-header #articles-nav a,
+#organisation-projects header.object-list-header #articles-nav a,
+#organisation-projects-articles header.object-list-header #articles-nav a,
+.objects-list header.object-list-header #articles-nav a,
+#object-list header.object-list-header #articles-nav a,
+#articles header.object-list-header #objects-nav #articles-filter-nav a,
+#search-results header.object-list-header #objects-nav #articles-filter-nav a,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav a,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav a,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav a,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav a,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav a,
+#object-list header.object-list-header #objects-nav #articles-filter-nav a,
+#articles header.object-list-header #objects-filter-nav a,
+#search-results header.object-list-header #objects-filter-nav a,
+#editors_choices header.object-list-header #objects-filter-nav a,
+#article-project-review-projects header.object-list-header #objects-filter-nav a,
+#organisation-projects header.object-list-header #objects-filter-nav a,
+#organisation-projects-articles header.object-list-header #objects-filter-nav a,
+.objects-list header.object-list-header #objects-filter-nav a,
+#object-list header.object-list-header #objects-filter-nav a {
+  margin: 0;
+  border: 2px;
+  padding: 20px 20px;
+}
+#articles header.object-list-header #articles-nav a:link,
+#search-results header.object-list-header #articles-nav a:link,
+#editors_choices header.object-list-header #articles-nav a:link,
+#article-project-review-projects header.object-list-header #articles-nav a:link,
+#organisation-projects header.object-list-header #articles-nav a:link,
+#organisation-projects-articles header.object-list-header #articles-nav a:link,
+.objects-list header.object-list-header #articles-nav a:link,
+#object-list header.object-list-header #articles-nav a:link,
+#articles header.object-list-header #objects-nav #articles-filter-nav a:link,
+#search-results header.object-list-header #objects-nav #articles-filter-nav a:link,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav a:link,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav a:link,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav a:link,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav a:link,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav a:link,
+#object-list header.object-list-header #objects-nav #articles-filter-nav a:link,
+#articles header.object-list-header #objects-filter-nav a:link,
+#search-results header.object-list-header #objects-filter-nav a:link,
+#editors_choices header.object-list-header #objects-filter-nav a:link,
+#article-project-review-projects header.object-list-header #objects-filter-nav a:link,
+#organisation-projects header.object-list-header #objects-filter-nav a:link,
+#organisation-projects-articles header.object-list-header #objects-filter-nav a:link,
+.objects-list header.object-list-header #objects-filter-nav a:link,
+#object-list header.object-list-header #objects-filter-nav a:link,
+#articles header.object-list-header #articles-nav a:visited,
+#search-results header.object-list-header #articles-nav a:visited,
+#editors_choices header.object-list-header #articles-nav a:visited,
+#article-project-review-projects header.object-list-header #articles-nav a:visited,
+#organisation-projects header.object-list-header #articles-nav a:visited,
+#organisation-projects-articles header.object-list-header #articles-nav a:visited,
+.objects-list header.object-list-header #articles-nav a:visited,
+#object-list header.object-list-header #articles-nav a:visited,
+#articles header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#search-results header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav a:visited,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#object-list header.object-list-header #objects-nav #articles-filter-nav a:visited,
+#articles header.object-list-header #objects-filter-nav a:visited,
+#search-results header.object-list-header #objects-filter-nav a:visited,
+#editors_choices header.object-list-header #objects-filter-nav a:visited,
+#article-project-review-projects header.object-list-header #objects-filter-nav a:visited,
+#organisation-projects header.object-list-header #objects-filter-nav a:visited,
+#organisation-projects-articles header.object-list-header #objects-filter-nav a:visited,
+.objects-list header.object-list-header #objects-filter-nav a:visited,
+#object-list header.object-list-header #objects-filter-nav a:visited {
+  background: #dddddd;
+  color: #333333;
+  float: left;
+  text-decoration: none;
+}
+#articles header.object-list-header #articles-nav a:link.active,
+#search-results header.object-list-header #articles-nav a:link.active,
+#editors_choices header.object-list-header #articles-nav a:link.active,
+#article-project-review-projects header.object-list-header #articles-nav a:link.active,
+#organisation-projects header.object-list-header #articles-nav a:link.active,
+#organisation-projects-articles header.object-list-header #articles-nav a:link.active,
+.objects-list header.object-list-header #articles-nav a:link.active,
+#object-list header.object-list-header #articles-nav a:link.active,
+#articles header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#search-results header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#object-list header.object-list-header #objects-nav #articles-filter-nav a:link.active,
+#articles header.object-list-header #objects-filter-nav a:link.active,
+#search-results header.object-list-header #objects-filter-nav a:link.active,
+#editors_choices header.object-list-header #objects-filter-nav a:link.active,
+#article-project-review-projects header.object-list-header #objects-filter-nav a:link.active,
+#organisation-projects header.object-list-header #objects-filter-nav a:link.active,
+#organisation-projects-articles header.object-list-header #objects-filter-nav a:link.active,
+.objects-list header.object-list-header #objects-filter-nav a:link.active,
+#object-list header.object-list-header #objects-filter-nav a:link.active,
+#articles header.object-list-header #articles-nav a:visited.active,
+#search-results header.object-list-header #articles-nav a:visited.active,
+#editors_choices header.object-list-header #articles-nav a:visited.active,
+#article-project-review-projects header.object-list-header #articles-nav a:visited.active,
+#organisation-projects header.object-list-header #articles-nav a:visited.active,
+#organisation-projects-articles header.object-list-header #articles-nav a:visited.active,
+.objects-list header.object-list-header #articles-nav a:visited.active,
+#object-list header.object-list-header #articles-nav a:visited.active,
+#articles header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#search-results header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#object-list header.object-list-header #objects-nav #articles-filter-nav a:visited.active,
+#articles header.object-list-header #objects-filter-nav a:visited.active,
+#search-results header.object-list-header #objects-filter-nav a:visited.active,
+#editors_choices header.object-list-header #objects-filter-nav a:visited.active,
+#article-project-review-projects header.object-list-header #objects-filter-nav a:visited.active,
+#organisation-projects header.object-list-header #objects-filter-nav a:visited.active,
+#organisation-projects-articles header.object-list-header #objects-filter-nav a:visited.active,
+.objects-list header.object-list-header #objects-filter-nav a:visited.active,
+#object-list header.object-list-header #objects-filter-nav a:visited.active {
+  background: #ffffff;
+  border-bottom: 1px solid #fff;
+  color: #333333;
+}
+#articles header.object-list-header #articles-nav a:hover,
+#search-results header.object-list-header #articles-nav a:hover,
+#editors_choices header.object-list-header #articles-nav a:hover,
+#article-project-review-projects header.object-list-header #articles-nav a:hover,
+#organisation-projects header.object-list-header #articles-nav a:hover,
+#organisation-projects-articles header.object-list-header #articles-nav a:hover,
+.objects-list header.object-list-header #articles-nav a:hover,
+#object-list header.object-list-header #articles-nav a:hover,
+#articles header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#search-results header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav a:hover,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#object-list header.object-list-header #objects-nav #articles-filter-nav a:hover,
+#articles header.object-list-header #objects-filter-nav a:hover,
+#search-results header.object-list-header #objects-filter-nav a:hover,
+#editors_choices header.object-list-header #objects-filter-nav a:hover,
+#article-project-review-projects header.object-list-header #objects-filter-nav a:hover,
+#organisation-projects header.object-list-header #objects-filter-nav a:hover,
+#organisation-projects-articles header.object-list-header #objects-filter-nav a:hover,
+.objects-list header.object-list-header #objects-filter-nav a:hover,
+#object-list header.object-list-header #objects-filter-nav a:hover {
+  background: #eeeeee;
+  color: #333333;
+  text-decoration: underline;
+}
+#articles header.object-list-header #articles-nav li.greyed a,
+#search-results header.object-list-header #articles-nav li.greyed a,
+#editors_choices header.object-list-header #articles-nav li.greyed a,
+#article-project-review-projects header.object-list-header #articles-nav li.greyed a,
+#organisation-projects header.object-list-header #articles-nav li.greyed a,
+#organisation-projects-articles header.object-list-header #articles-nav li.greyed a,
+.objects-list header.object-list-header #articles-nav li.greyed a,
+#object-list header.object-list-header #articles-nav li.greyed a,
+#articles header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#search-results header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#object-list header.object-list-header #objects-nav #articles-filter-nav li.greyed a,
+#articles header.object-list-header #objects-filter-nav li.greyed a,
+#search-results header.object-list-header #objects-filter-nav li.greyed a,
+#editors_choices header.object-list-header #objects-filter-nav li.greyed a,
+#article-project-review-projects header.object-list-header #objects-filter-nav li.greyed a,
+#organisation-projects header.object-list-header #objects-filter-nav li.greyed a,
+#organisation-projects-articles header.object-list-header #objects-filter-nav li.greyed a,
+.objects-list header.object-list-header #objects-filter-nav li.greyed a,
+#object-list header.object-list-header #objects-filter-nav li.greyed a {
+  background-color: #ccc;
+  color: #eee;
+}
+#articles header.object-list-header #articles-nav li.greyed a:hover,
+#search-results header.object-list-header #articles-nav li.greyed a:hover,
+#editors_choices header.object-list-header #articles-nav li.greyed a:hover,
+#article-project-review-projects header.object-list-header #articles-nav li.greyed a:hover,
+#organisation-projects header.object-list-header #articles-nav li.greyed a:hover,
+#organisation-projects-articles header.object-list-header #articles-nav li.greyed a:hover,
+.objects-list header.object-list-header #articles-nav li.greyed a:hover,
+#object-list header.object-list-header #articles-nav li.greyed a:hover,
+#articles header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#search-results header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#object-list header.object-list-header #objects-nav #articles-filter-nav li.greyed a:hover,
+#articles header.object-list-header #objects-filter-nav li.greyed a:hover,
+#search-results header.object-list-header #objects-filter-nav li.greyed a:hover,
+#editors_choices header.object-list-header #objects-filter-nav li.greyed a:hover,
+#article-project-review-projects header.object-list-header #objects-filter-nav li.greyed a:hover,
+#organisation-projects header.object-list-header #objects-filter-nav li.greyed a:hover,
+#organisation-projects-articles header.object-list-header #objects-filter-nav li.greyed a:hover,
+.objects-list header.object-list-header #objects-filter-nav li.greyed a:hover,
+#object-list header.object-list-header #objects-filter-nav li.greyed a:hover {
+  background-color: #ccc;
+  color: #eee;
+  text-decoration: none;
+}
+#articles header.object-list-header #articles-nav #articles-meta-filter,
+#search-results header.object-list-header #articles-nav #articles-meta-filter,
+#editors_choices header.object-list-header #articles-nav #articles-meta-filter,
+#article-project-review-projects header.object-list-header #articles-nav #articles-meta-filter,
+#organisation-projects header.object-list-header #articles-nav #articles-meta-filter,
+#organisation-projects-articles header.object-list-header #articles-nav #articles-meta-filter,
+.objects-list header.object-list-header #articles-nav #articles-meta-filter,
+#object-list header.object-list-header #articles-nav #articles-meta-filter,
+#articles header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter,
+#articles header.object-list-header #objects-filter-nav #articles-meta-filter,
+#search-results header.object-list-header #objects-filter-nav #articles-meta-filter,
+#editors_choices header.object-list-header #objects-filter-nav #articles-meta-filter,
+#article-project-review-projects header.object-list-header #objects-filter-nav #articles-meta-filter,
+#organisation-projects header.object-list-header #objects-filter-nav #articles-meta-filter,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #articles-meta-filter,
+.objects-list header.object-list-header #objects-filter-nav #articles-meta-filter,
+#object-list header.object-list-header #objects-filter-nav #articles-meta-filter,
+#articles header.object-list-header #articles-nav #objects-meta-filter,
+#search-results header.object-list-header #articles-nav #objects-meta-filter,
+#editors_choices header.object-list-header #articles-nav #objects-meta-filter,
+#article-project-review-projects header.object-list-header #articles-nav #objects-meta-filter,
+#organisation-projects header.object-list-header #articles-nav #objects-meta-filter,
+#organisation-projects-articles header.object-list-header #articles-nav #objects-meta-filter,
+.objects-list header.object-list-header #articles-nav #objects-meta-filter,
+#object-list header.object-list-header #articles-nav #objects-meta-filter,
+#articles header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter,
+#articles header.object-list-header #objects-filter-nav #objects-meta-filter,
+#search-results header.object-list-header #objects-filter-nav #objects-meta-filter,
+#editors_choices header.object-list-header #objects-filter-nav #objects-meta-filter,
+#article-project-review-projects header.object-list-header #objects-filter-nav #objects-meta-filter,
+#organisation-projects header.object-list-header #objects-filter-nav #objects-meta-filter,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #objects-meta-filter,
+.objects-list header.object-list-header #objects-filter-nav #objects-meta-filter,
+#object-list header.object-list-header #objects-filter-nav #objects-meta-filter {
+  position: absolute;
+  top: 6px;
+}
+#articles header.object-list-header #articles-nav #articles-meta-filter li a,
+#search-results header.object-list-header #articles-nav #articles-meta-filter li a,
+#editors_choices header.object-list-header #articles-nav #articles-meta-filter li a,
+#article-project-review-projects header.object-list-header #articles-nav #articles-meta-filter li a,
+#organisation-projects header.object-list-header #articles-nav #articles-meta-filter li a,
+#organisation-projects-articles header.object-list-header #articles-nav #articles-meta-filter li a,
+.objects-list header.object-list-header #articles-nav #articles-meta-filter li a,
+#object-list header.object-list-header #articles-nav #articles-meta-filter li a,
+#articles header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #articles-meta-filter li a,
+#articles header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#search-results header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#editors_choices header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#article-project-review-projects header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#organisation-projects header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+.objects-list header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#object-list header.object-list-header #objects-filter-nav #articles-meta-filter li a,
+#articles header.object-list-header #articles-nav #objects-meta-filter li a,
+#search-results header.object-list-header #articles-nav #objects-meta-filter li a,
+#editors_choices header.object-list-header #articles-nav #objects-meta-filter li a,
+#article-project-review-projects header.object-list-header #articles-nav #objects-meta-filter li a,
+#organisation-projects header.object-list-header #articles-nav #objects-meta-filter li a,
+#organisation-projects-articles header.object-list-header #articles-nav #objects-meta-filter li a,
+.objects-list header.object-list-header #articles-nav #objects-meta-filter li a,
+#object-list header.object-list-header #articles-nav #objects-meta-filter li a,
+#articles header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #objects-meta-filter li a,
+#articles header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+#search-results header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+#editors_choices header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+#article-project-review-projects header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+#organisation-projects header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+.objects-list header.object-list-header #objects-filter-nav #objects-meta-filter li a,
+#object-list header.object-list-header #objects-filter-nav #objects-meta-filter li a {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+#articles header.object-list-header #articles-nav select,
+#search-results header.object-list-header #articles-nav select,
+#editors_choices header.object-list-header #articles-nav select,
+#article-project-review-projects header.object-list-header #articles-nav select,
+#organisation-projects header.object-list-header #articles-nav select,
+#organisation-projects-articles header.object-list-header #articles-nav select,
+.objects-list header.object-list-header #articles-nav select,
+#object-list header.object-list-header #articles-nav select,
+#articles header.object-list-header #objects-nav #articles-filter-nav select,
+#search-results header.object-list-header #objects-nav #articles-filter-nav select,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav select,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav select,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav select,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav select,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav select,
+#object-list header.object-list-header #objects-nav #articles-filter-nav select,
+#articles header.object-list-header #objects-filter-nav select,
+#search-results header.object-list-header #objects-filter-nav select,
+#editors_choices header.object-list-header #objects-filter-nav select,
+#article-project-review-projects header.object-list-header #objects-filter-nav select,
+#organisation-projects header.object-list-header #objects-filter-nav select,
+#organisation-projects-articles header.object-list-header #objects-filter-nav select,
+.objects-list header.object-list-header #objects-filter-nav select,
+#object-list header.object-list-header #objects-filter-nav select,
+#articles header.object-list-header #articles-nav input,
+#search-results header.object-list-header #articles-nav input,
+#editors_choices header.object-list-header #articles-nav input,
+#article-project-review-projects header.object-list-header #articles-nav input,
+#organisation-projects header.object-list-header #articles-nav input,
+#organisation-projects-articles header.object-list-header #articles-nav input,
+.objects-list header.object-list-header #articles-nav input,
+#object-list header.object-list-header #articles-nav input,
+#articles header.object-list-header #objects-nav #articles-filter-nav input,
+#search-results header.object-list-header #objects-nav #articles-filter-nav input,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav input,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav input,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav input,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav input,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav input,
+#object-list header.object-list-header #objects-nav #articles-filter-nav input,
+#articles header.object-list-header #objects-filter-nav input,
+#search-results header.object-list-header #objects-filter-nav input,
+#editors_choices header.object-list-header #objects-filter-nav input,
+#article-project-review-projects header.object-list-header #objects-filter-nav input,
+#organisation-projects header.object-list-header #objects-filter-nav input,
+#organisation-projects-articles header.object-list-header #objects-filter-nav input,
+.objects-list header.object-list-header #objects-filter-nav input,
+#object-list header.object-list-header #objects-filter-nav input {
+  position: absolute;
+  right: 0px;
+  top: 8px;
+}
+#articles header.object-list-header #articles-nav .radio,
+#search-results header.object-list-header #articles-nav .radio,
+#editors_choices header.object-list-header #articles-nav .radio,
+#article-project-review-projects header.object-list-header #articles-nav .radio,
+#organisation-projects header.object-list-header #articles-nav .radio,
+#organisation-projects-articles header.object-list-header #articles-nav .radio,
+.objects-list header.object-list-header #articles-nav .radio,
+#object-list header.object-list-header #articles-nav .radio,
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio,
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio,
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio,
+#articles header.object-list-header #objects-filter-nav .radio,
+#search-results header.object-list-header #objects-filter-nav .radio,
+#editors_choices header.object-list-header #objects-filter-nav .radio,
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio,
+#organisation-projects header.object-list-header #objects-filter-nav .radio,
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio,
+.objects-list header.object-list-header #objects-filter-nav .radio,
+#object-list header.object-list-header #objects-filter-nav .radio {
+  display: inline-block;
+}
+#articles header.object-list-header #articles-nav .radio label,
+#search-results header.object-list-header #articles-nav .radio label,
+#editors_choices header.object-list-header #articles-nav .radio label,
+#article-project-review-projects header.object-list-header #articles-nav .radio label,
+#organisation-projects header.object-list-header #articles-nav .radio label,
+#organisation-projects-articles header.object-list-header #articles-nav .radio label,
+.objects-list header.object-list-header #articles-nav .radio label,
+#object-list header.object-list-header #articles-nav .radio label,
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio label,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#articles header.object-list-header #objects-filter-nav .radio label,
+#search-results header.object-list-header #objects-filter-nav .radio label,
+#editors_choices header.object-list-header #objects-filter-nav .radio label,
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio label,
+#organisation-projects header.object-list-header #objects-filter-nav .radio label,
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio label,
+.objects-list header.object-list-header #objects-filter-nav .radio label,
+#object-list header.object-list-header #objects-filter-nav .radio label {
+  background: #ddd;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 20px;
+}
+#articles header.object-list-header #articles-nav .radio label.active,
+#search-results header.object-list-header #articles-nav .radio label.active,
+#editors_choices header.object-list-header #articles-nav .radio label.active,
+#article-project-review-projects header.object-list-header #articles-nav .radio label.active,
+#organisation-projects header.object-list-header #articles-nav .radio label.active,
+#organisation-projects-articles header.object-list-header #articles-nav .radio label.active,
+.objects-list header.object-list-header #articles-nav .radio label.active,
+#object-list header.object-list-header #articles-nav .radio label.active,
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio label.active,
+#articles header.object-list-header #objects-filter-nav .radio label.active,
+#search-results header.object-list-header #objects-filter-nav .radio label.active,
+#editors_choices header.object-list-header #objects-filter-nav .radio label.active,
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio label.active,
+#organisation-projects header.object-list-header #objects-filter-nav .radio label.active,
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio label.active,
+.objects-list header.object-list-header #objects-filter-nav .radio label.active,
+#object-list header.object-list-header #objects-filter-nav .radio label.active {
+  background-color: #333;
+  color: #eee;
+}
+#articles header.object-list-header #articles-nav .radio input[type=radio],
+#search-results header.object-list-header #articles-nav .radio input[type=radio],
+#editors_choices header.object-list-header #articles-nav .radio input[type=radio],
+#article-project-review-projects header.object-list-header #articles-nav .radio input[type=radio],
+#organisation-projects header.object-list-header #articles-nav .radio input[type=radio],
+#organisation-projects-articles header.object-list-header #articles-nav .radio input[type=radio],
+.objects-list header.object-list-header #articles-nav .radio input[type=radio],
+#object-list header.object-list-header #articles-nav .radio input[type=radio],
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#articles header.object-list-header #objects-filter-nav .radio input[type=radio],
+#search-results header.object-list-header #objects-filter-nav .radio input[type=radio],
+#editors_choices header.object-list-header #objects-filter-nav .radio input[type=radio],
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio input[type=radio],
+#organisation-projects header.object-list-header #objects-filter-nav .radio input[type=radio],
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio input[type=radio],
+.objects-list header.object-list-header #objects-filter-nav .radio input[type=radio],
+#object-list header.object-list-header #objects-filter-nav .radio input[type=radio],
+#articles header.object-list-header #articles-nav .radio label,
+#search-results header.object-list-header #articles-nav .radio label,
+#editors_choices header.object-list-header #articles-nav .radio label,
+#article-project-review-projects header.object-list-header #articles-nav .radio label,
+#organisation-projects header.object-list-header #articles-nav .radio label,
+#organisation-projects-articles header.object-list-header #articles-nav .radio label,
+.objects-list header.object-list-header #articles-nav .radio label,
+#object-list header.object-list-header #articles-nav .radio label,
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio label,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio label,
+#articles header.object-list-header #objects-filter-nav .radio label,
+#search-results header.object-list-header #objects-filter-nav .radio label,
+#editors_choices header.object-list-header #objects-filter-nav .radio label,
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio label,
+#organisation-projects header.object-list-header #objects-filter-nav .radio label,
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio label,
+.objects-list header.object-list-header #objects-filter-nav .radio label,
+#object-list header.object-list-header #objects-filter-nav .radio label {
+  width: auto;
+  position: static;
+  margin-left: 0;
+  cursor: pointer;
+}
+#articles header.object-list-header #articles-nav .radio input[type=radio],
+#search-results header.object-list-header #articles-nav .radio input[type=radio],
+#editors_choices header.object-list-header #articles-nav .radio input[type=radio],
+#article-project-review-projects header.object-list-header #articles-nav .radio input[type=radio],
+#organisation-projects header.object-list-header #articles-nav .radio input[type=radio],
+#organisation-projects-articles header.object-list-header #articles-nav .radio input[type=radio],
+.objects-list header.object-list-header #articles-nav .radio input[type=radio],
+#object-list header.object-list-header #articles-nav .radio input[type=radio],
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio input[type=radio],
+#articles header.object-list-header #objects-filter-nav .radio input[type=radio],
+#search-results header.object-list-header #objects-filter-nav .radio input[type=radio],
+#editors_choices header.object-list-header #objects-filter-nav .radio input[type=radio],
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio input[type=radio],
+#organisation-projects header.object-list-header #objects-filter-nav .radio input[type=radio],
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio input[type=radio],
+.objects-list header.object-list-header #objects-filter-nav .radio input[type=radio],
+#object-list header.object-list-header #objects-filter-nav .radio input[type=radio] {
+  visibility: hidden;
+  width: 0px;
+}
+#articles header.object-list-header #articles-nav .radio label:hover,
+#search-results header.object-list-header #articles-nav .radio label:hover,
+#editors_choices header.object-list-header #articles-nav .radio label:hover,
+#article-project-review-projects header.object-list-header #articles-nav .radio label:hover,
+#organisation-projects header.object-list-header #articles-nav .radio label:hover,
+#organisation-projects-articles header.object-list-header #articles-nav .radio label:hover,
+.objects-list header.object-list-header #articles-nav .radio label:hover,
+#object-list header.object-list-header #articles-nav .radio label:hover,
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio label:hover,
+#articles header.object-list-header #objects-filter-nav .radio label:hover,
+#search-results header.object-list-header #objects-filter-nav .radio label:hover,
+#editors_choices header.object-list-header #objects-filter-nav .radio label:hover,
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio label:hover,
+#organisation-projects header.object-list-header #objects-filter-nav .radio label:hover,
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio label:hover,
+.objects-list header.object-list-header #objects-filter-nav .radio label:hover,
+#object-list header.object-list-header #objects-filter-nav .radio label:hover {
+  background: #eee;
+  color: #333;
+}
+#articles header.object-list-header #articles-nav .radio label.active:hover,
+#search-results header.object-list-header #articles-nav .radio label.active:hover,
+#editors_choices header.object-list-header #articles-nav .radio label.active:hover,
+#article-project-review-projects header.object-list-header #articles-nav .radio label.active:hover,
+#organisation-projects header.object-list-header #articles-nav .radio label.active:hover,
+#organisation-projects-articles header.object-list-header #articles-nav .radio label.active:hover,
+.objects-list header.object-list-header #articles-nav .radio label.active:hover,
+#object-list header.object-list-header #articles-nav .radio label.active:hover,
+#articles header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#search-results header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#object-list header.object-list-header #objects-nav #articles-filter-nav .radio label.active:hover,
+#articles header.object-list-header #objects-filter-nav .radio label.active:hover,
+#search-results header.object-list-header #objects-filter-nav .radio label.active:hover,
+#editors_choices header.object-list-header #objects-filter-nav .radio label.active:hover,
+#article-project-review-projects header.object-list-header #objects-filter-nav .radio label.active:hover,
+#organisation-projects header.object-list-header #objects-filter-nav .radio label.active:hover,
+#organisation-projects-articles header.object-list-header #objects-filter-nav .radio label.active:hover,
+.objects-list header.object-list-header #objects-filter-nav .radio label.active:hover,
+#object-list header.object-list-header #objects-filter-nav .radio label.active:hover {
+  background: #ccc;
+  color: #333;
+}
+#articles header.object-list-header #articles-nav #object-location-filter,
+#search-results header.object-list-header #articles-nav #object-location-filter,
+#editors_choices header.object-list-header #articles-nav #object-location-filter,
+#article-project-review-projects header.object-list-header #articles-nav #object-location-filter,
+#organisation-projects header.object-list-header #articles-nav #object-location-filter,
+#organisation-projects-articles header.object-list-header #articles-nav #object-location-filter,
+.objects-list header.object-list-header #articles-nav #object-location-filter,
+#object-list header.object-list-header #articles-nav #object-location-filter,
+#articles header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #object-location-filter,
+#articles header.object-list-header #objects-filter-nav #object-location-filter,
+#search-results header.object-list-header #objects-filter-nav #object-location-filter,
+#editors_choices header.object-list-header #objects-filter-nav #object-location-filter,
+#article-project-review-projects header.object-list-header #objects-filter-nav #object-location-filter,
+#organisation-projects header.object-list-header #objects-filter-nav #object-location-filter,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #object-location-filter,
+.objects-list header.object-list-header #objects-filter-nav #object-location-filter,
+#object-list header.object-list-header #objects-filter-nav #object-location-filter {
+  top: 8px;
+  right: 200px;
+  width: 120px;
+}
+#articles header.object-list-header #articles-nav #object-type-filter,
+#search-results header.object-list-header #articles-nav #object-type-filter,
+#editors_choices header.object-list-header #articles-nav #object-type-filter,
+#article-project-review-projects header.object-list-header #articles-nav #object-type-filter,
+#organisation-projects header.object-list-header #articles-nav #object-type-filter,
+#organisation-projects-articles header.object-list-header #articles-nav #object-type-filter,
+.objects-list header.object-list-header #articles-nav #object-type-filter,
+#object-list header.object-list-header #articles-nav #object-type-filter,
+#articles header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #object-type-filter,
+#articles header.object-list-header #objects-filter-nav #object-type-filter,
+#search-results header.object-list-header #objects-filter-nav #object-type-filter,
+#editors_choices header.object-list-header #objects-filter-nav #object-type-filter,
+#article-project-review-projects header.object-list-header #objects-filter-nav #object-type-filter,
+#organisation-projects header.object-list-header #objects-filter-nav #object-type-filter,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #object-type-filter,
+.objects-list header.object-list-header #objects-filter-nav #object-type-filter,
+#object-list header.object-list-header #objects-filter-nav #object-type-filter {
+  right: 68px;
+  width: 120px;
+}
+#articles header.object-list-header #articles-nav label.object-date-filter,
+#search-results header.object-list-header #articles-nav label.object-date-filter,
+#editors_choices header.object-list-header #articles-nav label.object-date-filter,
+#article-project-review-projects header.object-list-header #articles-nav label.object-date-filter,
+#organisation-projects header.object-list-header #articles-nav label.object-date-filter,
+#organisation-projects-articles header.object-list-header #articles-nav label.object-date-filter,
+.objects-list header.object-list-header #articles-nav label.object-date-filter,
+#object-list header.object-list-header #articles-nav label.object-date-filter,
+#articles header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#search-results header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#object-list header.object-list-header #objects-nav #articles-filter-nav label.object-date-filter,
+#articles header.object-list-header #objects-filter-nav label.object-date-filter,
+#search-results header.object-list-header #objects-filter-nav label.object-date-filter,
+#editors_choices header.object-list-header #objects-filter-nav label.object-date-filter,
+#article-project-review-projects header.object-list-header #objects-filter-nav label.object-date-filter,
+#organisation-projects header.object-list-header #objects-filter-nav label.object-date-filter,
+#organisation-projects-articles header.object-list-header #objects-filter-nav label.object-date-filter,
+.objects-list header.object-list-header #objects-filter-nav label.object-date-filter,
+#object-list header.object-list-header #objects-filter-nav label.object-date-filter {
+  position: relative;
+  z-index: 99;
+  left: 15px;
+  top: 12px;
+  content: 'From: ';
+}
+#articles header.object-list-header #articles-nav #object-date-filter,
+#search-results header.object-list-header #articles-nav #object-date-filter,
+#editors_choices header.object-list-header #articles-nav #object-date-filter,
+#article-project-review-projects header.object-list-header #articles-nav #object-date-filter,
+#organisation-projects header.object-list-header #articles-nav #object-date-filter,
+#organisation-projects-articles header.object-list-header #articles-nav #object-date-filter,
+.objects-list header.object-list-header #articles-nav #object-date-filter,
+#object-list header.object-list-header #articles-nav #object-date-filter,
+#articles header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#search-results header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#editors_choices header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#article-project-review-projects header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#organisation-projects header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#organisation-projects-articles header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+.objects-list header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#object-list header.object-list-header #objects-nav #articles-filter-nav #object-date-filter,
+#articles header.object-list-header #objects-filter-nav #object-date-filter,
+#search-results header.object-list-header #objects-filter-nav #object-date-filter,
+#editors_choices header.object-list-header #objects-filter-nav #object-date-filter,
+#article-project-review-projects header.object-list-header #objects-filter-nav #object-date-filter,
+#organisation-projects header.object-list-header #objects-filter-nav #object-date-filter,
+#organisation-projects-articles header.object-list-header #objects-filter-nav #object-date-filter,
+.objects-list header.object-list-header #objects-filter-nav #object-date-filter,
+#object-list header.object-list-header #objects-filter-nav #object-date-filter {
+  background: #ffffff url('/site_media/static/img/calendar.png') 99% 0 no-repeat;
+  height: 18px;
+  top: 5px;
+  left: 8px;
+  padding-left: 50px;
+}
+#articles .object-break-heading,
+#search-results .object-break-heading,
+#editors_choices .object-break-heading,
+#article-project-review-projects .object-break-heading,
+#organisation-projects .object-break-heading,
+#organisation-projects-articles .object-break-heading,
+.objects-list .object-break-heading,
+#object-list .object-break-heading {
+  /* used in events */
+
+  clear: both;
+  border-top: 3px solid #e1e1e1;
+  display: inline-block;
+  width: 640px;
+  /*
+                Instead of specifying @lines-per-row --
+                specify a more explicit @line-height,
+                that won't change depending on @row-height
+            */
+
+  font-size: 18px;
+  line-height: 40px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-bottom: 0;
+}
+#articles .object-list-row:first-child,
+#search-results .object-list-row:first-child,
+#editors_choices .object-list-row:first-child,
+#article-project-review-projects .object-list-row:first-child,
+#organisation-projects .object-list-row:first-child,
+#organisation-projects-articles .object-list-row:first-child,
+.objects-list .object-list-row:first-child,
+#object-list .object-list-row:first-child {
+  margin-top: 0;
+}
+#articles .object-list-row,
+#search-results .object-list-row,
+#editors_choices .object-list-row,
+#article-project-review-projects .object-list-row,
+#organisation-projects .object-list-row,
+#organisation-projects-articles .object-list-row,
+.objects-list .object-list-row,
+#object-list .object-list-row {
+  display: inline-block;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#articles .object-list-row article,
+#search-results .object-list-row article,
+#editors_choices .object-list-row article,
+#article-project-review-projects .object-list-row article,
+#organisation-projects .object-list-row article,
+#organisation-projects-articles .object-list-row article,
+.objects-list .object-list-row article,
+#object-list .object-list-row article {
+  width: 202px;
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 8.5px;
+  margin-right: 8.5px;
+  /* 17px = custom gutter */
+
+}
+#articles .object-list-row article header,
+#search-results .object-list-row article header,
+#editors_choices .object-list-row article header,
+#article-project-review-projects .object-list-row article header,
+#organisation-projects .object-list-row article header,
+#organisation-projects-articles .object-list-row article header,
+.objects-list .object-list-row article header,
+#object-list .object-list-row article header {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 202px;
+  display: inline-block;
+}
+#articles .object-list-row article header h2,
+#search-results .object-list-row article header h2,
+#editors_choices .object-list-row article header h2,
+#article-project-review-projects .object-list-row article header h2,
+#organisation-projects .object-list-row article header h2,
+#organisation-projects-articles .object-list-row article header h2,
+.objects-list .object-list-row article header h2,
+#object-list .object-list-row article header h2 {
+  font-size: 15px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #3779b4;
+}
+#articles .object-list-row article header h2 a,
+#search-results .object-list-row article header h2 a,
+#editors_choices .object-list-row article header h2 a,
+#article-project-review-projects .object-list-row article header h2 a,
+#organisation-projects .object-list-row article header h2 a,
+#organisation-projects-articles .object-list-row article header h2 a,
+.objects-list .object-list-row article header h2 a,
+#object-list .object-list-row article header h2 a {
+  color: #3779b4;
+}
+#articles .object-list-row article .event-byline,
+#search-results .object-list-row article .event-byline,
+#editors_choices .object-list-row article .event-byline,
+#article-project-review-projects .object-list-row article .event-byline,
+#organisation-projects .object-list-row article .event-byline,
+#organisation-projects-articles .object-list-row article .event-byline,
+.objects-list .object-list-row article .event-byline,
+#object-list .object-list-row article .event-byline,
+#articles .object-list-row article .event-dates,
+#search-results .object-list-row article .event-dates,
+#editors_choices .object-list-row article .event-dates,
+#article-project-review-projects .object-list-row article .event-dates,
+#organisation-projects .object-list-row article .event-dates,
+#organisation-projects-articles .object-list-row article .event-dates,
+.objects-list .object-list-row article .event-dates,
+#object-list .object-list-row article .event-dates {
+  display: block;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  margin: 0px;
+}
+#articles .object-list-row article .event-dates,
+#search-results .object-list-row article .event-dates,
+#editors_choices .object-list-row article .event-dates,
+#article-project-review-projects .object-list-row article .event-dates,
+#organisation-projects .object-list-row article .event-dates,
+#organisation-projects-articles .object-list-row article .event-dates,
+.objects-list .object-list-row article .event-dates,
+#object-list .object-list-row article .event-dates {
+  text-transform: none;
+}
+#articles .object-list-row article figure,
+#search-results .object-list-row article figure,
+#editors_choices .object-list-row article figure,
+#article-project-review-projects .object-list-row article figure,
+#organisation-projects .object-list-row article figure,
+#organisation-projects-articles .object-list-row article figure,
+.objects-list .object-list-row article figure,
+#object-list .object-list-row article figure,
+#articles .object-list-row article .article-feature-image,
+#search-results .object-list-row article .article-feature-image,
+#editors_choices .object-list-row article .article-feature-image,
+#article-project-review-projects .object-list-row article .article-feature-image,
+#organisation-projects .object-list-row article .article-feature-image,
+#organisation-projects-articles .object-list-row article .article-feature-image,
+.objects-list .object-list-row article .article-feature-image,
+#object-list .object-list-row article .article-feature-image {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+#articles .object-list-row article:first-child,
+#search-results .object-list-row article:first-child,
+#editors_choices .object-list-row article:first-child,
+#article-project-review-projects .object-list-row article:first-child,
+#organisation-projects .object-list-row article:first-child,
+#organisation-projects-articles .object-list-row article:first-child,
+.objects-list .object-list-row article:first-child,
+#object-list .object-list-row article:first-child {
+  margin-left: 0;
+}
+#articles .object-list-row article:last-child,
+#search-results .object-list-row article:last-child,
+#editors_choices .object-list-row article:last-child,
+#article-project-review-projects .object-list-row article:last-child,
+#organisation-projects .object-list-row article:last-child,
+#organisation-projects-articles .object-list-row article:last-child,
+.objects-list .object-list-row article:last-child,
+#object-list .object-list-row article:last-child {
+  margin-right: 0;
+}
+/* End: Body Section ------------------------------------- */
+/* Aside
+--------------------------------------------- */
+aside {
+  /*
+            Style individual aside sections here where
+            they differ from flobal styles
+        */
+
+}
+aside #project-details {
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  border-top: 3px solid #000;
+  margin-bottom: 40px;
+}
+aside #project-details header {
+  float: none;
+}
+aside #project-details dt, aside #project-details dd {
+  list-style-type: disc;
+}
+aside #project-details dl, aside #project-details ul {
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+aside #project-details ul {
+  padding-left: 15px;
+}
+aside #project-details ul li {
+  list-style: disc outside none;
+  padding-left: 0px;
+}
+aside #project-details h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  border-bottom: 1px dotted #000;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+aside #project-details h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+aside #architecture-now-inbox, aside #asides-selector-products {
+  border-top: 3px solid #e1e1e1;
+}
+aside #architecture-now-inbox h4,
+aside #asides-selector-products h4,
+aside #architecture-now-inbox h3,
+aside #asides-selector-products h3 {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin: 10px 0; */
+
+}
+aside #architecture-now-inbox p, aside #asides-selector-products p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+aside #asides-selector-products li {
+  list-style-type: none;
+  border-bottom: 1px solid #d6d6d6;
+  margin: 10px;
+  padding: 0px 0px 10px 0px;
+  font-size: 12px;
+  overflow: hidden;
+  clear: left;
+}
+aside #asides-selector-products li .selector_api_product_name {
+  display: block;
+  margin-left: 110px;
+  margin-top: -3px;
+}
+aside #asides-selector-products li .selector_api_product_name a {
+  color: #000;
+  font-weight: bold;
+}
+aside #asides-selector-products li .selector_api_supplier_name {
+  display: block;
+  margin-left: 110px;
+}
+aside #asides-selector-products li .selector_api_supplier_name a {
+  color: #191919;
+}
+aside #asides-selector-products li img {
+  margin-right: 10px;
+  float: left;
+}
+aside #asides-selector-products li:last-child {
+  border: none;
+}
+aside #asides-selector-products ul {
+  background-color: #F7F7F7;
+  margin: 0px;
+  padding: 3px 0px 0px 0px;
+}
+aside #architecture-now-inbox input {
+  display: inline;
+}
+aside #architecture-now-inbox #subscribe {
+  background-color: #000;
+  color: #fff;
+  /*.rounded(3px);*/
+
+  height: 34px;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  padding: 0px 10px;
+  font-size: 13px;
+  line-height: 13px;
+  margin-left: 5px;
+  cursor: pointer;
+  cursor: hand;
+  border: 1px solid #000;
+  font-weight: bold;
+  height: 28px;
+}
+aside #architecture-now-inbox #subscribe:hover {
+  background-color: #3779B4;
+  border: 1px solid #3779B4;
+}
+aside #architecture-now-inbox #email {
+  width: 192px;
+  height: 20px;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  font-size: 13px;
+  line-height: 13px;
+  padding: 4px 4px 0px;
+  margin: 0px;
+  outline: none;
+}
+aside article header {
+  display: block;
+}
+aside article .event-byline, aside article .event-dates {
+  display: block;
+  text-transform: uppercase;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  margin: 0px;
+}
+aside article .event-dates {
+  text-transform: none;
+}
+aside article .object-dates {
+  clear: both;
+  text-transform: uppercase;
+  color: #DA100A;
+  border-right: 1px solid #000;
+  padding-right: 5px;
+  margin-right: 2px;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+}
+aside .asides-tabs .tab article header h5 {
+  font-size: 15px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #3779b4;
+  /* 15px, line-height: 20px etc */
+
+}
+aside .asides-tabs .tab article header h5 a {
+  color: #3779b4;
+}
+aside .asides-tabs .tab-select {
+  width: 300px;
+  padding: 6px 0px 6px 0px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin: 10px 0; */
+
+  margin-top: 0;
+  /* margin-top: 0px */
+
+  background-color: #F2F2F2;
+}
+aside .asides-tabs .tab-select .active {
+  background-color: #fff;
+  border-top: 3px solid #D6D6D6;
+  border-left: 1px solid #D6D6D6;
+  border-right: 1px solid #D6D6D6;
+  color: #000 !important;
+}
+aside .asides-tabs .tab-select a {
+  padding: 8px 15px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+aside .asides-tabs .tab-select li {
+  display: inline;
+}
+/* End: Aside ---------------*/
+/* Main Footer
+------------------------------------------------------------ */
+footer#main-footer {
+  border-top: 5px solid #000;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+footer#main-footer logo {
+  float: left;
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+footer#main-footer nav {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: right;
+}
+footer#main-footer nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+}
+footer#main-footer nav ul li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+footer#main-footer nav ul li:first-child {
+  margin-left: 0;
+}
+footer#main-footer nav ul li:last-child {
+  margin-right: 0;
+}
+footer#main-footer nav ul li:after {
+  content: '';
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 0;
+}
+footer#main-footer nav ul li:last-child:after {
+  display: none;
+}
+footer#main-footer nav#sites {
+  margin-right: 0;
+}
+footer#main-footer nav#sites ul {
+  list-style: none;
+  padding: 0;
+  margin: 0px;
+  /* separator & gutter */
+
+}
+footer#main-footer nav#sites ul li {
+  display: inline-block;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+footer#main-footer nav#sites ul li:first-child {
+  margin-left: 0;
+}
+footer#main-footer nav#sites ul li:last-child {
+  margin-right: 0;
+}
+footer#main-footer nav#sites ul li:after {
+  content: '/';
+  display: inline-block;
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-right: 0;
+}
+footer#main-footer nav#sites ul li:last-child:after {
+  display: none;
+}
+/* End: Main Footer ------------------------------------- */
+/*/////// Feature Areas //////////*/
+/* Home page
+------------------------------------------------------------ */
+.home h1 {
+  display: none;
+}
+/* Home features */
+#home-features {
+  width: 640px;
+  margin-bottom: 20px;
+  position: relative;
+}
+#home-features .home-feature .home-feature-figure {
+  position: relative;
+  height: 426px;
+}
+#home-features .home-feature .home-feature-figure figcaption {
+  bottom: 0px;
+  height: 80px;
+  width: 620px;
+  padding: 10px 10px;
+  position: absolute;
+  z-index: 1;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  -khtml-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  -khtml-opacity: 0.7;
+  background: #fff;
+}
+#home-features .home-feature .home-feature-figure figcaption span h2 {
+  /* 
+                Extends on inline to add row gutter support
+                for block text
+            */
+
+  /* 
+                Sets the styling of a inline text or
+                block text without a gutter to work 
+                with the grid vertical flow
+                
+                @lines-per-row should be set to a sensible
+                default, depending on the row-height
+            */
+  /*
+                Sets the line-height of block text to work within rows
+            */
+
+  line-height: 26.666666666666668px;
+  font-size: 24px;
+  /* help block text to be recognised as .row() */
+
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+#home-features .home-feature .home-feature-figure figcaption span h2 a {
+  color: #000;
+}
+#home-features .home-feature.sibling {
+  display: none;
+}
+#home-features .home-feature-buttons {
+  position: absolute;
+  display: block;
+  bottom: 10px;
+  height: 20px;
+  width: 300px;
+  right: 10px;
+  z-index: 99;
+}
+#home-features .home-feature-buttons .home-feature-button-links {
+  float: right;
+}
+#home-features .home-feature-buttons .home-feature-button-links .home-feature-button {
+  background: #ccc;
+  margin-left: 5px;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  height: 20px;
+  width: 20px;
+}
+#home-features .home-feature-buttons .home-feature-button-links .home-feature-button:hover, #home-features .home-feature-buttons .home-feature-button-links .home-feature-button.active {
+  background: #000;
+  color: #fff;
+}
+.home #latest_news, .home #latest_features {
+  width: 310px;
+  float: left;
+  display: block;
+}
+.home #latest_news header h2, .home #latest_features header h2 {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.home #latest_news article, .home #latest_features article {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.home #latest_news article header h3, .home #latest_features article header h3 {
+  font-size: 15px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #3779b4;
+}
+.home #latest_news article header h3 a, .home #latest_features article header h3 a {
+  color: #3779b4;
+}
+.home #latest_news article:first-child,
+.home #latest_features article:first-child,
+.home #latest_news article.first,
+.home #latest_features article.first {
+  margin-top: 0;
+}
+.home #latest_news figure, .home #latest_features figure {
+  clear: both;
+  width: 140px;
+  display: inline-block;
+  float: left;
+  margin: 0px 10px 0px 0px;
+}
+.home #latest_news {
+  margin-right: 10px;
+  padding-right: 10px;
+  width: 300px;
+  border-right: 1px solid #ccc;
+}
+.home #editors_choices {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #e1e1e1;
+}
+.home #editors_choices header {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 20px;
+}
+.home #editors_choices header h2 {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.home #editors_choices article:first-child, .home #editors_choices article.first {
+  margin-left: 0;
+  margin-left: 0px !important;
+}
+.home #editors_choices article {
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 8.5px;
+  margin-right: 8.5px;
+  /* 17px = custom gutter */
+
+}
+.home #editors_choices article header {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: auto;
+  margin-bottom: 0;
+}
+.home #editors_choices article header h3 {
+  line-height: 30px;
+  font-size: 15px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #3779b4;
+}
+.home #editors_choices article header h3 a {
+  color: #3779b4;
+}
+.home #editors_choices article .object-excerpt {
+  float: left;
+  width: auto;
+}
+.home #editors_choices article:last-child, .home #editors_choices article.last {
+  margin-right: 0;
+}
+/* End: Home page ------------------------ */
+/* Feature Image & Slideshow
+------------------------------------------------------------ */
+#slideshow-images figure {
+  margin-top: -1px;
+}
+/* 
+        Deprecate #article-feature-image in favour of object
+        i.e:
+            id="object-feature-image" class="{{ object.content_type }}"
+    */
+#object-feature-image {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  clear: both;
+  position: relative;
+}
+#object-feature-image figure {
+  display: block;
+  width: 640px;
+  /* this will stretch the img */
+
+}
+#object-feature-image figure img {
+  /* 
+                @Stewart: Need to research someway to make the figure width: 640px 
+                and not stretch the img at the same time, and center it.
+                */
+
+  margin: 0px auto;
+  width: auto;
+}
+#object-feature-image figure figcaption {
+  position: relative;
+  display: block;
+  margin: 0px;
+}
+#object-feature-image figure figcaption .object-feature-image-count {
+  font-weight: bold;
+}
+#object-feature-image figure figcaption .object-feature-image-caption {
+  display: table-cell;
+  vertical-align: top;
+  width: 550px;
+  background-color: #e5e5e5;
+  color: #000;
+  height: 34px;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 9px 84px 10px 12px;
+}
+#object-feature-image figure figcaption .object-feature-image-caption .object-credits-photographers, #object-feature-image figure figcaption .object-feature-image-caption .object-credits-photographers * {
+  color: #4d4d4d;
+}
+#object-feature-image .object-slideshow-controls {
+  z-index: 99999;
+  position: absolute;
+  right: 11px;
+  top: 12px;
+}
+#object-feature-image .object-slideshow-controls img {
+  margin: -2px;
+}
+#object-feature-image .object-slideshow-controls .object-slideshow-next, #object-feature-image .object-slideshow-controls .object-slideshow-previous {
+  width: 23px;
+  height: 30px;
+  background-repeat: no-repeat;
+  float: left;
+  cursor: pointer;
+  cursor: hand;
+}
+#object-feature-image .object-slideshow-controls .object-slideshow-next {
+  background-image: url(/site_media/static/img/arrow_right.png);
+}
+#object-feature-image .object-slideshow-controls .object-slideshow-previous {
+  background-image: url(/site_media/static/img/arrow_left.png);
+}
+#object-feature-image .object-slideshow-controls .object-slideshow-next:hover {
+  background-image: url(/site_media/static/img/arrow_right_hover.png);
+}
+#object-feature-image .object-slideshow-controls .object-slideshow-previous:hover {
+  background-image: url(/site_media/static/img/arrow_left_hover.png);
+}
+#object-feature-image.slideshow {
+  display: block;
+}
+#object-feature-image.slideshow #slideshow-images .object-feature-image-container {
+  display: table-cell;
+  line-height: 0px;
+  /* this fixes the gap between image and caption -- but not sure why? */
+
+  height: 426px;
+  width: 640px;
+  vertical-align: bottom;
+  text-align: center;
+}
+#object-feature-image.slideshow #slideshow-images .object-feature-image-container figure {
+  display: block;
+}
+#object-feature-image.slideshow #slideshow-images .object-feature-image-container figure.sibling {
+  display: none;
+}
+/* End: Feature Image & Slideshow ------------------------ */
+/* Forms
+------------------------------------------------------------ */
+/* Form defaults */
+label {
+  font-weight: bold;
+}
+fieldset {
+  border: 1px solid #ccc;
+}
+legend {
+  font-weight: bold;
+}
+input[type=text],
+input[type=password],
+input.text,
+input.title,
+textarea {
+  background-color: #fff;
+  border: 1px solid #bbb;
+}
+input[type=submit], input[type=reset] {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input.text:focus,
+input.title:focus,
+textarea:focus {
+  border-color: #666;
+}
+select {
+  background-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+}
+.error,
+.alert,
+.notice,
+.success,
+.info {
+  border: 1px solid #ddd;
+}
+.error, .alert {
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
+}
+.notice {
+  background: #fff6bf;
+  color: #514721;
+  border-color: #ffd324;
+}
+.success {
+  background: #e6efc2;
+  color: #black;
+  border-color: #c6d880;
+}
+.info {
+  background: #d5edf8;
+  color: #205791;
+  border-color: #92cae4;
+}
+.error a, .alert a {
+  color: #8a1f11;
+}
+.notice a {
+  color: #514721;
+}
+.success a {
+  color: #264409;
+}
+.info a {
+  color: #205791;
+}
+/* django-uniForm styling */
+.uniForm fieldset {
+  border: none;
+  padding: 0px;
+}
+.uniForm input,
+.uniForm textarea,
+.uniForm #id_first_name,
+.uniForm #id_last_name,
+.uniForm #id_email,
+.uniForm #id_password1,
+.uniForm #id_password2,
+.uniForm #id_password {
+  width: 408px;
+  height: 28px;
+  display: block;
+  font-size: 16px;
+  outline: none;
+  font-family: Arial, sans-serif;
+  padding: 4px 10px 0px;
+}
+.uniForm textarea {
+  padding: 10px 10px 0px;
+}
+.uniForm #id_subscribe {
+  float: left;
+}
+.uniForm #hint_id_subscribe {
+  width: 408px;
+  padding-left: 10px;
+  color: #1a1a1a;
+}
+.uniForm .ctrlHolder {
+  margin-bottom: 20px;
+}
+.uniForm .checkbox .checkboxinput {
+  float: left;
+  height: 20px;
+  width: 20px;
+}
+.uniForm .checkbox p {
+  font-size: 12px;
+}
+.uniForm .checkbox label {
+  float: left;
+}
+.uniForm label {
+  display: block;
+  font-size: 14px;
+  float: none;
+  font-weight: bold;
+  width: auto;
+}
+.uniForm label span {
+  margin-left: 4px;
+}
+.uniForm label.required {
+  /* font-weight: bold;*/
+
+}
+.uniForm div.form_block {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.uniForm div.form_block span {
+  display: table-cell;
+  vertical-align: middle;
+  height: 28px;
+  padding-left: 10px;
+  border-left: dotted 1px #000000;
+}
+.uniForm div.form_block a {
+  color: #000000 !important;
+}
+.uniForm div.form_block input[type=submit] {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #000;
+  color: #fff;
+  cursor: hand;
+  cursor: pointer;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  float: left;
+  height: 28px;
+  line-height: 13px;
+  margin: 0px;
+  margin-right: 10px;
+  padding: 0px 10px;
+  width: auto;
+  background-color: #000000;
+}
+.uniForm div.form_block input:hover[type=submit] {
+  background-color: #3779b4;
+  border: 1px solid #3779b4;
+}
+.uniForm div.form_block input[type=reset] {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #b3b3b3;
+  color: #fff;
+  cursor: hand;
+  cursor: pointer;
+  font-family: Arial, "MS Trebuchet", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  float: left;
+  height: 28px;
+  line-height: 13px;
+  margin: 0px;
+  margin-right: 10px;
+  padding: 0px 10px;
+  width: auto;
+  background-color: #b3b3b3;
+}
+.uniForm div.form_block input:hover[type=reset] {
+  background-color: #3779B4;
+  border: 1px solid #3779B4;
+}
+/* End: Forms --------------------------- */
+/* Comments
+------------------------------------------------------------ */
+#comments {
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 620px;
+  display: block;
+  margin: 0px;
+}
+#comments figure {
+  margin-left: 0;
+  width: 100px;
+  float: left;
+  margin-right: 20px;
+}
+#comments figure img {
+  display: block;
+  margin-left: 0;
+  width: auto;
+}
+#comments dl .comment {
+  font-size: 14px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  display: block;
+  float: left;
+  width: 640px;
+  margin-left: 0;
+}
+#comments dl .comment dt {
+  clear: both;
+  color: #9a9a9a;
+}
+#comments dl .comment dt a.comment-owner {
+  font-size: 14px;
+  font-weight: 500;
+}
+#comments dl .comment dd {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+#comment-form {
+  /* This element should be considered as a column */
+
+  display: inline;
+  /* or inline? */
+
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 620px;
+  display: block;
+  margin: 0px;
+}
+#comment-form h4 {
+  line-height: 18px;
+}
+#comment-form fieldset {
+  border: none;
+  padding: none;
+}
+#comment-form fieldset.inlineLabels {
+  padding: 0px;
+}
+#comment-form form label {
+  display: none;
+}
+#comment-form form #div_id_name,
+#comment-form form #div_id_email,
+#comment-form form #div_id_url,
+#comment-form form #div_id_honeypot {
+  display: none;
+}
+#comment-form fieldset.inlineLabels,
+#comment-login fieldset.inlineLabels,
+#comment-form fieldset,
+#comment-login fieldset {
+  padding: 0px;
+  border: none;
+}
+#comment-login form fieldset {
+  border: none;
+}
+/* Combine or deprecate? */
+#comment-login fieldset {
+  border: 1px dashed #ccc;
+}
+#comment-login #div_id_remember label {
+  margin-top: 2px;
+  font-weight: normal;
+}
+#comment-login #div_log_in {
+  clear: left;
+  float: left;
+  margin-left: 0;
+  margin-top: 10px;
+}
+#comment-login #div_forgot_password {
+  clear: left;
+  float: left;
+}
+/* End: Comments -------------- */
+/* Messages
+--------------------------------------------- */
+#messages {
+  position: relative;
+  display: block;
+  width: 968px;
+  top: 0;
+  left: 0;
+  opacity: 100;
+  z-index: 9999;
+  margin: 0px;
+}
+#messages ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#messages ul li {
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+  margin: 0px;
+}
+#messages ul .error,
+#messages ul .alert,
+#messages ul .notice,
+#messages ul .success,
+#messages ul .info {
+  margin-bottom: 0px;
+  /*.rounded​(@line-height * 2);*/
+
+}
+/* End: Messages ---------------------------- */
+/* Adverts
+--------------------------------------------- */
+.leader-board {
+  margin-top: 10px;
+  width: 728px;
+  height: 90px;
+  float: left;
+}
+.promo {
+  margin-top: 10px;
+  margin-left: 15px;
+  float: left;
+}
+aside .ads {
+  /* This element should be considered as a row */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+aside .ads .island {
+  margin-bottom: 0px;
+  height: 250px;
+}
+aside .ads .island img {
+  width: 300px;
+  height: 250px;
+}
+/* End: Adverts ------------------------------ */
+/* Deprecated Stuff
+--------------------------------------------- */
+/* 
+        Move stuff that's no longer needed down here. */
+/*
+    aside {
+        #authors {
+            .column(7.75);
+            header {
+                .column(7.75);
+                .omega();
+                .alpha();
+            }
+        
+            .omega();
+            .alpha();
+            margin-bottom:0;
+        
+            figure {
+                img {
+                    .column(2);
+                    .alpha();
+                }
+                clear: both;
+                .rows(1);
+                .column(7);
+                .alpha();
+                .omega();
+                figcaption {
+                    .author-name {
+                        font-weight: 900;
+                        color: #333;
+                        font-size: @font-size * 1.1;
+                        margin-bottom: 0;
+                    }
+                    dt {
+                        display: block;
+                        float: left;
+                    }
+                    dd {
+                        font-weight: 900;
+                        color: #333;
+                        margin-left: @row-gutter;
+                        display: block;
+                        float: left;
+                    }
+                }
+            }
+        }
+        #author-articles {
+            header {
+                .column(7.75);
+                .shell();
+            }
+            ul {
+            }
+        }
+    
+    }
+    
+    #object-breadcrumbs {
+        margin-top:-1px;
+        nav {
+            .flatlist();
+            margin-bottom:0px;
+            ul {
+                padding-left: 0;
+                margin:0px;
+                a{
+                    font-family: Arial, "MS Trebuchet", sans-serif;
+                    text-transform: uppercase;
+                    color:#3779B4;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }*/
+/* #search-results {
+        header#search-results-header {
+            margin-bottom: @line-height;
+        }
+    }*/
+/*    #body #features { 
+        width: 970px;
+        .shell();
+        h2 {
+            display: none;
+        }
+        #feature-images {
+            position: relative;
+            .columns(16);
+            .shell();
+            height: 360px;
+            figure {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+            }
+        
+            figure {
+                img {
+                    height: 361px;
+                }
+            }
+        
+            figure:first-child {
+                display: block;
+            }
+        }
+        #feature-nav {
+            .column(8.25);
+            .shell();
+            li * {
+                .push(.14)
+            }
+            h4 {
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1;
+                a {
+                    text-decoration: none;
+                }
+                a:hover {
+                    text-decoration: underline;
+                } 
+            }
+            ul {
+                padding: 0;
+                margin: 0;
+            
+                height: 360px;
+                list-style: none;
+            
+                .active() {
+                    background-color: #ddd;
+                }
+            
+                li.active {
+                    .active();
+                }
+            
+                li:first-child {
+                    
+                    border-bottom: 1px solid #ddd;
+                    border-top: 1px solid #ddd;
+                }
+                li:last-child {
+
+                    border-bottom: none;
+                }
+                li {
+                    padding: 10px;
+                    border-bottom: 1px solid #ddd;
+                  
+                }
+                li.count-3 {
+                    height:  99px;
+                }   
+                li.count-4 {
+                    height: 69px;
+                }
+                li.count-5 {
+                    height: 61px;
+                }
+                li:hover {
+                    .active();
+                }
+            }
+        }
+    }
+
+    #feature-overflow {
+        width:680px;
+        .shell();
+        margin-bottom: @row-height;
+    
+        #feature-overflow-images {
+            figure{
+            
+                width:312px;
+                float:left;
+                position: relative;
+                margin-left: 0px;
+                margin-right: 16px;
+                img {
+                }
+                figcaption {
+                    .column(7.9);
+                    .shell();
+                    .rounded(1px);
+                    bottom: 0;
+                    h3 {
+                        font-size: 18px;
+                        line-height: 24px;
+                        margin-top: 5px;
+                    }
+                    span {
+                        opacity: 1;
+                        overflow: hidden;
+                        padding: 1px 5px;
+                    }
+                    span.feature-title {
+                        padding: 5px 5px;
+                        font-weight: 900;
+                    }
+                }
+            }
+            figure:first-child {
+                .alpha();
+            }
+            figure:last-child {
+                .omega();
+            }
+        }
+    }*/
+/*
+* jQuery UI CSS Framework 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Theming/API
+*/
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+  display: none;
+}
+.ui-helper-hidden-accessible {
+  position: absolute;
+  left: -99999999px;
+}
+.ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+.ui-helper-clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.ui-helper-clearfix {
+  display: inline-block;
+}
+/* required comment for clearfix to work in Opera \*/
+* html .ui-helper-clearfix {
+  height: 1%;
+}
+.ui-helper-clearfix {
+  display: block;
+}
+/* end clearfix */
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+  cursor: default !important;
+}
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*
+* jQuery UI CSS Framework 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Theming/API
+*
+* To view and modify this theme,visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=02_glass.png&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=02_glass.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+*/
+/* Component containers
+----------------------------------*/
+.ui-widget {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1em;
+}
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+  color: #222222;
+}
+.ui-widget-content a {
+  color: #222222;
+}
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+  color: #222222;
+  font-weight: bold;
+}
+.ui-widget-header a {
+  color: #222222;
+}
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6 url(images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
+  font-weight: normal;
+  color: #555555;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+  color: #555555;
+  text-decoration: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #999999;
+  background: #dadada url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+.ui-state-hover a, .ui-state-hover a:hover {
+  color: #212121;
+  text-decoration: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+  color: #212121;
+  text-decoration: none;
+}
+.ui-widget :active {
+  outline: none;
+}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 1px solid #fcefa1;
+  background: #fbf9ee url(images/ui-bg_glass_55_fbf9ee_1x400.png) 50% 50% repeat-x;
+  color: #363636;
+}
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
+  color: #363636;
+}
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
+  border: 1px solid #cd0a0a;
+  background: #fef1ec url(images/ui-bg_glass_95_fef1ec_1x400.png) 50% 50% repeat-x;
+  color: #cd0a0a;
+}
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a {
+  color: #cd0a0a;
+}
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text {
+  color: #cd0a0a;
+}
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
+  font-weight: bold;
+}
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {
+  opacity: .7;
+  filter: alpha(opacity=70);
+  font-weight: normal;
+}
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+  opacity: .35;
+  filter: alpha(opacity=35);
+  background-image: none;
+}
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {
+  width: 16px;
+  height: 16px;
+  background-image: url(images/ui-icons_222222_256x240.png);
+}
+.ui-widget-content .ui-icon {
+  background-image: url(images/ui-icons_222222_256x240.png);
+}
+.ui-widget-header .ui-icon {
+  background-image: url(images/ui-icons_222222_256x240.png);
+}
+.ui-state-default .ui-icon {
+  background-image: url(images/ui-icons_888888_256x240.png);
+}
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+  background-image: url(images/ui-icons_454545_256x240.png);
+}
+.ui-state-active .ui-icon {
+  background-image: url(images/ui-icons_454545_256x240.png);
+}
+.ui-state-highlight .ui-icon {
+  background-image: url(images/ui-icons_2e83ff_256x240.png);
+}
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
+  background-image: url(images/ui-icons_cd0a0a_256x240.png);
+}
+/* positioning */
+.ui-icon-carat-1-n {
+  background-position: 0 0;
+}
+.ui-icon-carat-1-ne {
+  background-position: -16px 0;
+}
+.ui-icon-carat-1-e {
+  background-position: -32px 0;
+}
+.ui-icon-carat-1-se {
+  background-position: -48px 0;
+}
+.ui-icon-carat-1-s {
+  background-position: -64px 0;
+}
+.ui-icon-carat-1-sw {
+  background-position: -80px 0;
+}
+.ui-icon-carat-1-w {
+  background-position: -96px 0;
+}
+.ui-icon-carat-1-nw {
+  background-position: -112px 0;
+}
+.ui-icon-carat-2-n-s {
+  background-position: -128px 0;
+}
+.ui-icon-carat-2-e-w {
+  background-position: -144px 0;
+}
+.ui-icon-triangle-1-n {
+  background-position: 0 -16px;
+}
+.ui-icon-triangle-1-ne {
+  background-position: -16px -16px;
+}
+.ui-icon-triangle-1-e {
+  background-position: -32px -16px;
+}
+.ui-icon-triangle-1-se {
+  background-position: -48px -16px;
+}
+.ui-icon-triangle-1-s {
+  background-position: -64px -16px;
+}
+.ui-icon-triangle-1-sw {
+  background-position: -80px -16px;
+}
+.ui-icon-triangle-1-w {
+  background-position: -96px -16px;
+}
+.ui-icon-triangle-1-nw {
+  background-position: -112px -16px;
+}
+.ui-icon-triangle-2-n-s {
+  background-position: -128px -16px;
+}
+.ui-icon-triangle-2-e-w {
+  background-position: -144px -16px;
+}
+.ui-icon-arrow-1-n {
+  background-position: 0 -32px;
+}
+.ui-icon-arrow-1-ne {
+  background-position: -16px -32px;
+}
+.ui-icon-arrow-1-e {
+  background-position: -32px -32px;
+}
+.ui-icon-arrow-1-se {
+  background-position: -48px -32px;
+}
+.ui-icon-arrow-1-s {
+  background-position: -64px -32px;
+}
+.ui-icon-arrow-1-sw {
+  background-position: -80px -32px;
+}
+.ui-icon-arrow-1-w {
+  background-position: -96px -32px;
+}
+.ui-icon-arrow-1-nw {
+  background-position: -112px -32px;
+}
+.ui-icon-arrow-2-n-s {
+  background-position: -128px -32px;
+}
+.ui-icon-arrow-2-ne-sw {
+  background-position: -144px -32px;
+}
+.ui-icon-arrow-2-e-w {
+  background-position: -160px -32px;
+}
+.ui-icon-arrow-2-se-nw {
+  background-position: -176px -32px;
+}
+.ui-icon-arrowstop-1-n {
+  background-position: -192px -32px;
+}
+.ui-icon-arrowstop-1-e {
+  background-position: -208px -32px;
+}
+.ui-icon-arrowstop-1-s {
+  background-position: -224px -32px;
+}
+.ui-icon-arrowstop-1-w {
+  background-position: -240px -32px;
+}
+.ui-icon-arrowthick-1-n {
+  background-position: 0 -48px;
+}
+.ui-icon-arrowthick-1-ne {
+  background-position: -16px -48px;
+}
+.ui-icon-arrowthick-1-e {
+  background-position: -32px -48px;
+}
+.ui-icon-arrowthick-1-se {
+  background-position: -48px -48px;
+}
+.ui-icon-arrowthick-1-s {
+  background-position: -64px -48px;
+}
+.ui-icon-arrowthick-1-sw {
+  background-position: -80px -48px;
+}
+.ui-icon-arrowthick-1-w {
+  background-position: -96px -48px;
+}
+.ui-icon-arrowthick-1-nw {
+  background-position: -112px -48px;
+}
+.ui-icon-arrowthick-2-n-s {
+  background-position: -128px -48px;
+}
+.ui-icon-arrowthick-2-ne-sw {
+  background-position: -144px -48px;
+}
+.ui-icon-arrowthick-2-e-w {
+  background-position: -160px -48px;
+}
+.ui-icon-arrowthick-2-se-nw {
+  background-position: -176px -48px;
+}
+.ui-icon-arrowthickstop-1-n {
+  background-position: -192px -48px;
+}
+.ui-icon-arrowthickstop-1-e {
+  background-position: -208px -48px;
+}
+.ui-icon-arrowthickstop-1-s {
+  background-position: -224px -48px;
+}
+.ui-icon-arrowthickstop-1-w {
+  background-position: -240px -48px;
+}
+.ui-icon-arrowreturnthick-1-w {
+  background-position: 0 -64px;
+}
+.ui-icon-arrowreturnthick-1-n {
+  background-position: -16px -64px;
+}
+.ui-icon-arrowreturnthick-1-e {
+  background-position: -32px -64px;
+}
+.ui-icon-arrowreturnthick-1-s {
+  background-position: -48px -64px;
+}
+.ui-icon-arrowreturn-1-w {
+  background-position: -64px -64px;
+}
+.ui-icon-arrowreturn-1-n {
+  background-position: -80px -64px;
+}
+.ui-icon-arrowreturn-1-e {
+  background-position: -96px -64px;
+}
+.ui-icon-arrowreturn-1-s {
+  background-position: -112px -64px;
+}
+.ui-icon-arrowrefresh-1-w {
+  background-position: -128px -64px;
+}
+.ui-icon-arrowrefresh-1-n {
+  background-position: -144px -64px;
+}
+.ui-icon-arrowrefresh-1-e {
+  background-position: -160px -64px;
+}
+.ui-icon-arrowrefresh-1-s {
+  background-position: -176px -64px;
+}
+.ui-icon-arrow-4 {
+  background-position: 0 -80px;
+}
+.ui-icon-arrow-4-diag {
+  background-position: -16px -80px;
+}
+.ui-icon-extlink {
+  background-position: -32px -80px;
+}
+.ui-icon-newwin {
+  background-position: -48px -80px;
+}
+.ui-icon-refresh {
+  background-position: -64px -80px;
+}
+.ui-icon-shuffle {
+  background-position: -80px -80px;
+}
+.ui-icon-transfer-e-w {
+  background-position: -96px -80px;
+}
+.ui-icon-transferthick-e-w {
+  background-position: -112px -80px;
+}
+.ui-icon-folder-collapsed {
+  background-position: 0 -96px;
+}
+.ui-icon-folder-open {
+  background-position: -16px -96px;
+}
+.ui-icon-document {
+  background-position: -32px -96px;
+}
+.ui-icon-document-b {
+  background-position: -48px -96px;
+}
+.ui-icon-note {
+  background-position: -64px -96px;
+}
+.ui-icon-mail-closed {
+  background-position: -80px -96px;
+}
+.ui-icon-mail-open {
+  background-position: -96px -96px;
+}
+.ui-icon-suitcase {
+  background-position: -112px -96px;
+}
+.ui-icon-comment {
+  background-position: -128px -96px;
+}
+.ui-icon-person {
+  background-position: -144px -96px;
+}
+.ui-icon-print {
+  background-position: -160px -96px;
+}
+.ui-icon-trash {
+  background-position: -176px -96px;
+}
+.ui-icon-locked {
+  background-position: -192px -96px;
+}
+.ui-icon-unlocked {
+  background-position: -208px -96px;
+}
+.ui-icon-bookmark {
+  background-position: -224px -96px;
+}
+.ui-icon-tag {
+  background-position: -240px -96px;
+}
+.ui-icon-home {
+  background-position: 0 -112px;
+}
+.ui-icon-flag {
+  background-position: -16px -112px;
+}
+.ui-icon-calendar {
+  background-position: -32px -112px;
+}
+.ui-icon-cart {
+  background-position: -48px -112px;
+}
+.ui-icon-pencil {
+  background-position: -64px -112px;
+}
+.ui-icon-clock {
+  background-position: -80px -112px;
+}
+.ui-icon-disk {
+  background-position: -96px -112px;
+}
+.ui-icon-calculator {
+  background-position: -112px -112px;
+}
+.ui-icon-zoomin {
+  background-position: -128px -112px;
+}
+.ui-icon-zoomout {
+  background-position: -144px -112px;
+}
+.ui-icon-search {
+  background-position: -160px -112px;
+}
+.ui-icon-wrench {
+  background-position: -176px -112px;
+}
+.ui-icon-gear {
+  background-position: -192px -112px;
+}
+.ui-icon-heart {
+  background-position: -208px -112px;
+}
+.ui-icon-star {
+  background-position: -224px -112px;
+}
+.ui-icon-link {
+  background-position: -240px -112px;
+}
+.ui-icon-cancel {
+  background-position: 0 -128px;
+}
+.ui-icon-plus {
+  background-position: -16px -128px;
+}
+.ui-icon-plusthick {
+  background-position: -32px -128px;
+}
+.ui-icon-minus {
+  background-position: -48px -128px;
+}
+.ui-icon-minusthick {
+  background-position: -64px -128px;
+}
+.ui-icon-close {
+  background-position: -80px -128px;
+}
+.ui-icon-closethick {
+  background-position: -96px -128px;
+}
+.ui-icon-key {
+  background-position: -112px -128px;
+}
+.ui-icon-lightbulb {
+  background-position: -128px -128px;
+}
+.ui-icon-scissors {
+  background-position: -144px -128px;
+}
+.ui-icon-clipboard {
+  background-position: -160px -128px;
+}
+.ui-icon-copy {
+  background-position: -176px -128px;
+}
+.ui-icon-contact {
+  background-position: -192px -128px;
+}
+.ui-icon-image {
+  background-position: -208px -128px;
+}
+.ui-icon-video {
+  background-position: -224px -128px;
+}
+.ui-icon-script {
+  background-position: -240px -128px;
+}
+.ui-icon-alert {
+  background-position: 0 -144px;
+}
+.ui-icon-info {
+  background-position: -16px -144px;
+}
+.ui-icon-notice {
+  background-position: -32px -144px;
+}
+.ui-icon-help {
+  background-position: -48px -144px;
+}
+.ui-icon-check {
+  background-position: -64px -144px;
+}
+.ui-icon-bullet {
+  background-position: -80px -144px;
+}
+.ui-icon-radio-off {
+  background-position: -96px -144px;
+}
+.ui-icon-radio-on {
+  background-position: -112px -144px;
+}
+.ui-icon-pin-w {
+  background-position: -128px -144px;
+}
+.ui-icon-pin-s {
+  background-position: -144px -144px;
+}
+.ui-icon-play {
+  background-position: 0 -160px;
+}
+.ui-icon-pause {
+  background-position: -16px -160px;
+}
+.ui-icon-seek-next {
+  background-position: -32px -160px;
+}
+.ui-icon-seek-prev {
+  background-position: -48px -160px;
+}
+.ui-icon-seek-end {
+  background-position: -64px -160px;
+}
+.ui-icon-seek-start {
+  background-position: -80px -160px;
+}
+/* ui-icon-seek-first is deprecated,use ui-icon-seek-start instead */
+.ui-icon-seek-first {
+  background-position: -80px -160px;
+}
+.ui-icon-stop {
+  background-position: -96px -160px;
+}
+.ui-icon-eject {
+  background-position: -112px -160px;
+}
+.ui-icon-volume-off {
+  background-position: -128px -160px;
+}
+.ui-icon-volume-on {
+  background-position: -144px -160px;
+}
+.ui-icon-power {
+  background-position: 0 -176px;
+}
+.ui-icon-signal-diag {
+  background-position: -16px -176px;
+}
+.ui-icon-signal {
+  background-position: -32px -176px;
+}
+.ui-icon-battery-0 {
+  background-position: -48px -176px;
+}
+.ui-icon-battery-1 {
+  background-position: -64px -176px;
+}
+.ui-icon-battery-2 {
+  background-position: -80px -176px;
+}
+.ui-icon-battery-3 {
+  background-position: -96px -176px;
+}
+.ui-icon-circle-plus {
+  background-position: 0 -192px;
+}
+.ui-icon-circle-minus {
+  background-position: -16px -192px;
+}
+.ui-icon-circle-close {
+  background-position: -32px -192px;
+}
+.ui-icon-circle-triangle-e {
+  background-position: -48px -192px;
+}
+.ui-icon-circle-triangle-s {
+  background-position: -64px -192px;
+}
+.ui-icon-circle-triangle-w {
+  background-position: -80px -192px;
+}
+.ui-icon-circle-triangle-n {
+  background-position: -96px -192px;
+}
+.ui-icon-circle-arrow-e {
+  background-position: -112px -192px;
+}
+.ui-icon-circle-arrow-s {
+  background-position: -128px -192px;
+}
+.ui-icon-circle-arrow-w {
+  background-position: -144px -192px;
+}
+.ui-icon-circle-arrow-n {
+  background-position: -160px -192px;
+}
+.ui-icon-circle-zoomin {
+  background-position: -176px -192px;
+}
+.ui-icon-circle-zoomout {
+  background-position: -192px -192px;
+}
+.ui-icon-circle-check {
+  background-position: -208px -192px;
+}
+.ui-icon-circlesmall-plus {
+  background-position: 0 -208px;
+}
+.ui-icon-circlesmall-minus {
+  background-position: -16px -208px;
+}
+.ui-icon-circlesmall-close {
+  background-position: -32px -208px;
+}
+.ui-icon-squaresmall-plus {
+  background-position: -48px -208px;
+}
+.ui-icon-squaresmall-minus {
+  background-position: -64px -208px;
+}
+.ui-icon-squaresmall-close {
+  background-position: -80px -208px;
+}
+.ui-icon-grip-dotted-vertical {
+  background-position: 0 -224px;
+}
+.ui-icon-grip-dotted-horizontal {
+  background-position: -16px -224px;
+}
+.ui-icon-grip-solid-vertical {
+  background-position: -32px -224px;
+}
+.ui-icon-grip-solid-horizontal {
+  background-position: -48px -224px;
+}
+.ui-icon-gripsmall-diagonal-se {
+  background-position: -64px -224px;
+}
+.ui-icon-grip-diagonal-se {
+  background-position: -80px -224px;
+}
+/* Misc visuals
+----------------------------------*/
+/* Corner radius */
+.ui-corner-tl {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.ui-corner-tr {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.ui-corner-bl {
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.ui-corner-br {
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.ui-corner-top {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.ui-corner-bottom {
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.ui-corner-right {
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.ui-corner-left {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.ui-corner-all {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* Overlays */
+.ui-widget-overlay {
+  background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+  opacity: .30;
+  filter: alpha(opacity=30);
+}
+.ui-widget-shadow {
+  margin: -8px 0 0 -8px;
+  padding: 8px;
+  background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
+  opacity: .30;
+  filter: alpha(opacity=30);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+/*
+* jQuery UI Resizable 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Resizable#theming
+*/
+.ui-resizable {
+  position: relative;
+}
+.ui-resizable-handle {
+  position: absolute;
+  font-size: 0.1px;
+  z-index: 99999;
+  display: block;
+}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle {
+  display: none;
+}
+.ui-resizable-n {
+  cursor: n-resize;
+  height: 7px;
+  width: 100%;
+  top: -5px;
+  left: 0;
+}
+.ui-resizable-s {
+  cursor: s-resize;
+  height: 7px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+.ui-resizable-e {
+  cursor: e-resize;
+  width: 7px;
+  right: -5px;
+  top: 0;
+  height: 100%;
+}
+.ui-resizable-w {
+  cursor: w-resize;
+  width: 7px;
+  left: -5px;
+  top: 0;
+  height: 100%;
+}
+.ui-resizable-se {
+  cursor: se-resize;
+  width: 12px;
+  height: 12px;
+  right: 1px;
+  bottom: 1px;
+}
+.ui-resizable-sw {
+  cursor: sw-resize;
+  width: 9px;
+  height: 9px;
+  left: -5px;
+  bottom: -5px;
+}
+.ui-resizable-nw {
+  cursor: nw-resize;
+  width: 9px;
+  height: 9px;
+  left: -5px;
+  top: -5px;
+}
+.ui-resizable-ne {
+  cursor: ne-resize;
+  width: 9px;
+  height: 9px;
+  right: -5px;
+  top: -5px;
+}
+/*
+* jQuery UI Selectable 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Selectable#theming
+*/
+.ui-selectable-helper {
+  position: absolute;
+  z-index: 100;
+  border: 1px dotted black;
+}
+/*
+* jQuery UI Accordion 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Accordion#theming
+*/
+/* IE/Win - Fix animation bug - #4615 */
+.ui-accordion {
+  width: 100%;
+}
+.ui-accordion .ui-accordion-header {
+  cursor: pointer;
+  position: relative;
+  margin-top: 1px;
+  zoom: 1;
+}
+.ui-accordion .ui-accordion-li-fix {
+  display: inline;
+}
+.ui-accordion .ui-accordion-header-active {
+  border-bottom: 0 !important;
+}
+.ui-accordion .ui-accordion-header a {
+  display: block;
+  font-size: 1em;
+  padding: .5em .5em .5em .7em;
+}
+.ui-accordion-icons .ui-accordion-header a {
+  padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-header .ui-icon {
+  position: absolute;
+  left: .5em;
+  top: 50%;
+  margin-top: -8px;
+}
+.ui-accordion .ui-accordion-content {
+  padding: 1em 2.2em;
+  border-top: 0;
+  margin-top: -2px;
+  position: relative;
+  top: 1px;
+  margin-bottom: 2px;
+  overflow: auto;
+  display: none;
+  zoom: 1;
+}
+.ui-accordion .ui-accordion-content-active {
+  display: block;
+}
+/*
+* jQuery UI Autocomplete 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Autocomplete#theming
+*/
+.ui-autocomplete {
+  position: absolute;
+  cursor: default;
+}
+/* workarounds */
+* html .ui-autocomplete {
+  width: 1px;
+}
+/* without this,the menu expands to 100% in IE6 */
+/*
+* jQuery UI Menu 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Menu#theming
+*/
+.ui-menu {
+  list-style: none;
+  padding: 2px;
+  margin: 0;
+  display: block;
+  float: left;
+}
+.ui-menu .ui-menu {
+  margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+  float: left;
+  clear: left;
+  width: 100%;
+}
+.ui-menu .ui-menu-item a {
+  text-decoration: none;
+  display: block;
+  padding: .2em .4em;
+  line-height: 1.5;
+  zoom: 1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+  font-weight: normal;
+  margin: -1px;
+}
+/*
+* jQuery UI Button 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Button#theming
+*/
+.ui-button {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  margin-right: .1em;
+  text-decoration: none !important;
+  cursor: pointer;
+  text-align: center;
+  zoom: 1;
+  overflow: visible;
+}
+/* the overflow property removes extra width in IE */
+.ui-button-icon-only {
+  width: 2.2em;
+}
+/* to make room for the icon,a width needs to be set here */
+button.ui-button-icon-only {
+  width: 2.4em;
+}
+/* button elements seem to need a little more width */
+.ui-button-icons-only {
+  width: 3.4em;
+}
+button.ui-button-icons-only {
+  width: 3.7em;
+}
+/*button text element */
+.ui-button .ui-button-text {
+  display: block;
+  line-height: 1.4;
+}
+.ui-button-text-only .ui-button-text {
+  padding: .4em 1em;
+}
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text {
+  padding: .4em;
+  text-indent: -9999999px;
+}
+.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text {
+  padding: .4em 1em .4em 2.1em;
+}
+.ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text {
+  padding: .4em 2.1em .4em 1em;
+}
+.ui-button-text-icons .ui-button-text {
+  padding-left: 2.1em;
+  padding-right: 2.1em;
+}
+/* no icon support for input elements,provide padding by default */
+input.ui-button {
+  padding: .4em 1em;
+}
+/*button icon element(s) */
+.ui-button-icon-only .ui-icon,
+.ui-button-text-icon-primary .ui-icon,
+.ui-button-text-icon-secondary .ui-icon,
+.ui-button-text-icons .ui-icon,
+.ui-button-icons-only .ui-icon {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+}
+.ui-button-icon-only .ui-icon {
+  left: 50%;
+  margin-left: -8px;
+}
+.ui-button-text-icon-primary .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary {
+  left: .5em;
+}
+.ui-button-text-icon-secondary .ui-button-icon-secondary, .ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary {
+  right: .5em;
+}
+.ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary {
+  right: .5em;
+}
+/*button sets*/
+.ui-buttonset {
+  margin-right: 7px;
+}
+.ui-buttonset .ui-button {
+  margin-left: 0;
+  margin-right: -0.3em;
+}
+/* workarounds */
+button.ui-button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/* reset extra padding in Firefox */
+/*
+* jQuery UI Dialog 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Dialog#theming
+*/
+.ui-dialog {
+  position: absolute;
+  padding: .2em;
+  width: 300px;
+  overflow: hidden;
+}
+.ui-dialog .ui-dialog-titlebar {
+  padding: .5em 1em .3em;
+  position: relative;
+}
+.ui-dialog .ui-dialog-title {
+  float: left;
+  margin: .1em 16px .2em 0;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+  position: absolute;
+  right: .3em;
+  top: 50%;
+  width: 19px;
+  margin: -10px 0 0 0;
+  padding: 1px;
+  height: 18px;
+}
+.ui-dialog .ui-dialog-titlebar-close span {
+  display: block;
+  margin: 1px;
+}
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus {
+  padding: 0;
+}
+.ui-dialog .ui-dialog-content {
+  position: relative;
+  border: 0;
+  padding: .5em 1em;
+  background: none;
+  overflow: auto;
+  zoom: 1;
+}
+.ui-dialog .ui-dialog-buttonpane {
+  text-align: left;
+  border-width: 1px 0 0 0;
+  background-image: none;
+  margin: .5em 0 0 0;
+  padding: .3em 1em .5em .4em;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: right;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+  margin: .5em .4em .5em 0;
+  cursor: pointer;
+}
+.ui-dialog .ui-resizable-se {
+  width: 14px;
+  height: 14px;
+  right: 3px;
+  bottom: 3px;
+}
+.ui-draggable .ui-dialog-titlebar {
+  cursor: move;
+}
+/*
+* jQuery UI Slider 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Slider#theming
+*/
+.ui-slider {
+  position: relative;
+  text-align: left;
+}
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: default;
+}
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+}
+.ui-slider-horizontal {
+  height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+  top: -0.3em;
+  margin-left: -0.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+.ui-slider-vertical {
+  width: .8em;
+  height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+  left: -0.3em;
+  margin-left: 0;
+  margin-bottom: -0.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+/*
+* jQuery UI Tabs 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Tabs#theming
+*/
+.ui-tabs {
+  position: relative;
+  padding: .2em;
+  zoom: 1;
+}
+/* position:relative prevents IE scroll bug (element with position:relative inside container with overflow:auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav {
+  margin: 0;
+  padding: .2em .2em 0;
+}
+.ui-tabs .ui-tabs-nav li {
+  list-style: none;
+  float: left;
+  position: relative;
+  top: 1px;
+  margin: 0 .2em 1px 0;
+  border-bottom: 0 !important;
+  padding: 0;
+  white-space: nowrap;
+}
+.ui-tabs .ui-tabs-nav li a {
+  float: left;
+  padding: .5em 1em;
+  text-decoration: none;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+  margin-bottom: 0;
+  padding-bottom: 1px;
+}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+  cursor: text;
+}
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
+  cursor: pointer;
+}
+/* first selector in group seems obsolete,but required to overcome bug in Opera applying cursor:text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+  display: block;
+  border-width: 0;
+  padding: 1em 1.4em;
+  background: none;
+}
+.ui-tabs .ui-tabs-hide {
+  display: none !important;
+}
+/*
+* jQuery UI Datepicker 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Datepicker#theming
+*/
+.ui-datepicker {
+  width: 17em;
+  padding: .2em .2em 0;
+}
+.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  padding: .2em 0;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+  position: absolute;
+  top: 2px;
+  width: 1.8em;
+  height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
+  top: 1px;
+}
+.ui-datepicker .ui-datepicker-prev {
+  left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+  right: 2px;
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 1px;
+}
+.ui-datepicker .ui-datepicker-next-hover {
+  right: 1px;
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -8px;
+  top: 50%;
+  margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+  margin: 0 2.3em;
+  line-height: 1.8em;
+  text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+  font-size: 1em;
+  margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month-year {
+  width: 100%;
+}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+  width: 49%;
+}
+.ui-datepicker table {
+  width: 100%;
+  font-size: .9em;
+  border-collapse: collapse;
+  margin: 0 0 .4em;
+}
+.ui-datepicker th {
+  padding: .7em .3em;
+  text-align: center;
+  font-weight: bold;
+  border: 0;
+}
+.ui-datepicker td {
+  border: 0;
+  padding: 1px;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+  display: block;
+  padding: .2em;
+  text-align: right;
+  text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+  background-image: none;
+  margin: .7em 0 0 0;
+  padding: 0 .2em;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+  float: right;
+  margin: .5em .2em .4em;
+  cursor: pointer;
+  padding: .2em .6em .3em .6em;
+  width: auto;
+  overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+  float: left;
+}
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {
+  width: auto;
+}
+.ui-datepicker-multi .ui-datepicker-group {
+  float: left;
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+  width: 95%;
+  margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+  width: 50%;
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+  width: 33.3%;
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+  width: 25%;
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header {
+  border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+  border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+  clear: left;
+}
+.ui-datepicker-row-break {
+  clear: both;
+  width: 100%;
+}
+/* RTL support */
+.ui-datepicker-rtl {
+  direction: rtl;
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+  right: 2px;
+  left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+  left: 2px;
+  right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+  right: 1px;
+  left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+  left: 1px;
+  right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+  clear: right;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+  float: left;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
+  float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group {
+  float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+  position: absolute;
+  /*must have*/
+
+  z-index: -1;
+  /*must have*/
+
+  filter: mask();
+  /*must have*/
+
+  top: -4px;
+  /*must have*/
+
+  left: -4px;
+  /*must have*/
+
+  width: 200px;
+  /*must have*/
+
+  height: 200px;
+  /*must have*/
+}
+/*
+* jQuery UI Progressbar 1.8.6
+*
+* Copyright 2010,AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Progressbar#theming
+*/
+.ui-progressbar {
+  height: 2em;
+  text-align: left;
+}
+.ui-progressbar .ui-progressbar-value {
+  margin: -1px;
+  height: 100%;
+}

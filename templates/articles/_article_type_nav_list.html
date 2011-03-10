@@ -1,0 +1,5 @@
+{% spaceless %}
+{% for article_type in article_types %}
+    <li><a href="{% url articles_article_type article_type.slug %}">{% if article_type.name_plural %}{{ article_type.name_plural|title }}{% else %}{{ article_type|title }}{% endif %}</a></li>
+{% endfor %}
+{% endspaceless %}

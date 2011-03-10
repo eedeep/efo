@@ -1,0 +1,4 @@
+ls
+# uWSGI debugging
+/usr/bin/uwsgi -s /tmp/cherokee-source1.sock -C -x /home/archmedia/webapps/dev.architecturenow/anow/deploy/uwsgi.xml
+    # or copy from the 'Interpreter' line

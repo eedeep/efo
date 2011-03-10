@@ -1,0 +1,30 @@
+<header>
+            <h1>{{ person.display_name }}</h1>
+        </header>
+<dl>
+    {% if person.occupation %}
+    <dt>Occupation</dt>
+        <dd>{{ person.occupation }}</dd>
+    {% endif %}
+    {% if person.city or person.suburb %}
+    <dt>Location</dt>
+        <dd>{% with person as object %}{% include "base/_object_location.html" %}{% endwith %}</dd>
+    {% endif %}
+    {% if person.biography %}
+    <dt>Bio</dt>
+        <dd>{{ person.biography }}</dd>
+    {% endif %}
+    {% if person.website %}
+    <dt>Website:</dt>
+        <dd>
+            <a href="{{ person.website }}">
+            {% if person.website_name %}
+                {{ person.website_name }}
+            {% else %}
+                {{ person.website }}
+            {% endif %}
+            </a>
+        </dd>
+    {% endif %}
+
+</dl>

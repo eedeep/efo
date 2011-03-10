@@ -1,0 +1,83 @@
+{% extends "articles/base.html" %}
+{% load thumbnail articles_tags %}
+
+{% block head_title %}
+    {% with article as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with article as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+    {% if article.has_slideshow %}
+        <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/jquery/plugins/jquery.cycle.all.js"></script>
+        <script type="text/javascript" charset="utf-8" src="{{ STATIC_URL }}js/anow/anow-slideshow.js"></script>
+    {% endif %}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} article{% endblock %}
+
+{% block body %}
+    
+    {# removed by MR #}
+    {# {% with article as object %} #}
+    {#     {% include "base/_object_breadcrumbs.html" %} #}
+    {# {% endwith %} #}
+    
+    <section id="object" class="article {{ article.article_type.slug }}">
+        <article>
+            <header id="object-header">
+                <h1>{{ article.title }}</h1>
+            </header>
+            
+            {% with article as object %}
+                {% include "base/_object_meta.html" %}
+                {% include "base/_object_feature_image.html" %}
+                {% include "base/_object_introduction.html" %}
+                
+                <div class="object-content drop-cap">
+                {{ object.content|render_inline_images_for:object|safe }}
+                </div>
+            {% endwith %}
+            
+        </article>
+    </section>
+    
+    {% with article as object %}
+        {% include "base/_object_credits.html" %}
+        {% include "base/_object_publication_source.html" %}
+        {% include "base/_object_tags.html" %}
+    {% endwith %}
+            
+    {# {% if article.project %} #}
+    {# <section id="article-project-review-projects" class="objects-list"> #}
+    {#     <header> #}
+    {#         <h3>Project</h3> #}
+    {#     </header> #}
+    {#      #}
+    {#     {% with article.project as object %} #}
+    {#         {% include "base/_object_list_item.html" %} #}
+    {#     {% endwith %} #}
+    {#  #}
+    {# </section> #}
+    {# {% endif %} #}
+
+    <section id="object-share-links" class="object-related-functions">
+        <header>
+            <h3>Share this page</h3>
+        </header>
+        {% include "base/_object_social_share.html" %}  
+    </section>
+  
+    {% with article as object %}
+        {% include "base/_object_comments.html" %}
+    {% endwith %}
+    
+{% endblock%}
+
+{% block aside %}
+    {% include "base/_object_asides_combo.html" %}
+{% endblock %}

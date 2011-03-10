@@ -1,0 +1,129 @@
+{% extends "publications/base.html" %}
+{% load i18n %}
+{% load thumbnail %}
+{% load humanize %}
+
+{% block head_title %}
+    {% with magazine as object %}
+        {% include "base/_object_title_tag.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block extra_head %}
+    {% with magazine as object %}
+        {% include "base/_object_meta_tags.html" %}
+    {% endwith %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} {% with magazine as object %}{{ object.content_type }}{% endwith %}{% endblock %}
+
+{% block body %}
+
+    <section id="object" class="magazine">
+        
+        <article>
+            
+            <header>
+                <h1>{{ magazine.title }}</h1>
+            </header>
+            
+            {# {% with magazine as object %} #}
+            {#     {% include "base/_object_feature_image.html" %} #}
+            {# {% endwith %} #}
+            
+            <div class="object-content">{{ magazine.content|safe }}</div>
+            
+            {% if magazine.url %}
+                <p><a href="{{ object.magazine.url }}">Subscribe</a></p>
+            {% endif %}
+            
+        </article>
+    
+        {% if magazine.show_issues %}
+        
+            <section id="magazine-issues-list">
+            
+                <header>
+                    <h3>Browse by year</h3>
+                    <nav id="magazine-issues-list-filter-nav">
+                        <ul>
+                            {% if available_years %}
+                                <li>    
+                                    {% if filter_by_year %}
+                                        <a href="{{ magazine.get_absolute_url }}">All</a>
+                                    {% else %}
+                                        All
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+                            
+                            {% for year in available_years %}
+                                {% url magazine_view_by_year magazine.slug year.issue_year as filter_by_year_url %}
+                                <li>                   
+                                    {% if year == filter_by_year %}
+                                        {{ year }}
+                                    {% else %}
+                                        <a href="{% url magazine_view_by_year magazine.slug year %}">{{ year }}</a>
+                                    {% endif %}
+                                </li>                   
+                            {% endfor %}
+                            
+                        </ul>
+                    </nav>
+                </header>
+
+                <section id="magazine-issues-list-items">
+            
+                    {% for issue in issues %}
+        
+                        {% ifchanged issue.issue_year %}
+                        
+                        <section class="magazine-issues-list-break">
+                            <header>
+                                <h2>{{ issue.issue_year }}</h2>
+                            </header>
+                        </section>
+            
+                        {% endifchanged %}
+            
+                        <article class="magazine-issues-list-item">
+                
+                            <figure>
+                                {% if issue.cover_image_exists %}
+                                    <a href="{{ issue.get_absolute_url }}">
+                                        {% thumbnail issue.cover_image "145" as cover_image %}
+                                            <img 
+                                                alt="{{ issue.issue_name }}"
+                                                src="{{ cover_image.url }}"
+                                                width="{{ cover_image.width }}" 
+                                                height="{{ cover_image.height }}" />
+                                        {% endthumbnail %}
+                                    </a>
+                                {% else %}
+                                    <div class="magazine-issues-issue-placeholder">
+                                        <p>{{ magazine }}</p>
+                                    </div>
+                                {% endif %}
+                                <figcaption> 
+                                    <p><a href="{{ issue.get_absolute_url }}">{{ issue.issue_display_name }}</a></p>
+                                </figcaption>
+                            </figure>
+            
+                        </article>
+                
+                    {% endfor %}
+        
+                </section>
+
+            </section>
+        
+        {% endif %}
+    
+    </section>
+    
+{% endblock%}
+
+{% block aside %}
+    {% include "base/_object_asides_combo.html" %}
+{% endblock %}
