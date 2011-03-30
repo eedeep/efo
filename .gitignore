@@ -1,5 +1,6 @@
 *.pyc
 *.db
+*~
 .DS_Store
 media/css/main.css
 local_settings.py

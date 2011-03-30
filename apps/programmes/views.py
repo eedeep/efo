@@ -5,42 +5,44 @@ from django.template.context import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+from base.utils import filter_by_getvalues
 from popularity.signals import view
-from projects.models import Project
+
+from programmes.models import Programme
 
 def index(request):
     
-    projects = Project.objects.all()
+    programmes = Programme.objects.all()
     
     return render_to_response(
-        'projects/index.html',
+        'programmes/index.html',
         {
-            "projects": projects,
+            "programmes": programmes,
         },
         context_instance=RequestContext(request))
         
-def project(request, project_id=None, slug=None,):
+def programme(request, programme_id=None, slug=None,):
     
-    project = get_object_or_404(
-        Project,
+    programme = get_object_or_404(
+        Programme,
         slug=slug)
         
-    view.send(project)
+    view.send(programme)
 
     return render_to_response(
         'projects/project.html',
         {
-            "project": project,
+            "programme": programme,
         },
         context_instance=RequestContext(request))
         
-def projects(request):
+def programmes(request):
     
-    projects = Project.objects.all()
+    programmes = Programme.objects.all()
     
     return render_to_response(
         'projects/projects.html',
         {
-            "projects": projects,
+            "programmes": programmes,
         },
         context_instance=RequestContext(request))

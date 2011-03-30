@@ -22,17 +22,4 @@ def get_features(area):
             'active': True,
             'feature_set': feature_set,}
         features = Feature.objects.filter(**feature_filter_kwargs).order_by("order")
-        
-        """
-        We can't traverse the generic relation easily to further filter on
-        content_object__is_published, so we need to do it now
-        """
-        try:
-            # filter out the unpublished features
-            return [feature for feature in features if feature.content_object.is_published == True]
-        except AttributeError:
-            """
-            If we're here then somehow an unfeatureable object is being featured.
-            Something is wrong :(
-            """
-            return [] # return nothing
+        return features

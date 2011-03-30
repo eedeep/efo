@@ -5,12 +5,16 @@ from django.template.context import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+from base.utils import filter_by_getvalues
 from popularity.signals import view
+
 from projects.models import Project
 
 def index(request):
     
-    projects = Project.objects.all()
+    projects = filter_by_getvalues(
+        request, 
+        get_list_or_404(Project, is_published=True))
     
     return render_to_response(
         'projects/index.html',
@@ -23,6 +27,7 @@ def project(request, project_id=None, slug=None,):
     
     project = get_object_or_404(
         Project,
+        is_published=True, 
         slug=slug)
         
     view.send(project)
@@ -36,7 +41,9 @@ def project(request, project_id=None, slug=None,):
         
 def projects(request):
     
-    projects = Project.objects.all()
+    projects = filter_by_getvalues(
+        request, 
+        Project.site_objects.filter(is_published=True))
     
     return render_to_response(
         'projects/projects.html',

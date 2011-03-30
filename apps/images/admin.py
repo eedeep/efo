@@ -7,8 +7,17 @@ class ImageInline(admin.StackedInline):
     extra = 0
     form = ImageAdminModelForm
     sortable_field_name = "order"
-    exclude = ('feature',)
-    raw_id_fields = ('user_credit',)
+    fieldsets = (
+        (None, {
+            'fields': (
+                'image',
+                'caption',
+                'photographer',
+                'slide_show',
+                'feature',
+            )
+        }),
+    )
 
 class ImageAdmin(admin.ModelAdmin):
     pass

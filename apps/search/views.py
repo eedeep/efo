@@ -6,8 +6,7 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.utils import simplejson
 
-from projects.models import ProjectIndividual
-from articles.models import Article
+from projects.models import Project
 
 from django.contrib.comments.models import Comment
 
@@ -21,24 +20,20 @@ def search(request, q=""):
     results = []
     total = 0
     
-    article_kwargs = {
-        'is_published': True,
-        'published__lte': datetime.datetime.now(),
-        'article_type__is_published': True,
-    }
+    project_kwargs = {}
     
     if q == "":
         # Nothing to search for.
         pass
     else:
-        # Articles
-        query = Q(is_published=True) & \
-                Q(title__icontains=q) | \
-                Q(content__icontains=q)
+        # Projects
+        query = Q(name__icontains=q) & \
+                Q(spiele__icontains=q) | \
+                Q(summary__icontains=q)
         
-        articles = Article.site_objects.filter(query, **article_kwargs)
+        projects = Project.site_objects.filter(query, **project_kwargs)
         
-        results = articles
+        results = projects
         
         # total = len(results)
         

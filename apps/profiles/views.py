@@ -12,10 +12,7 @@ from filebrowser.functions import handle_file_upload
 
 import settings, os.path
 
-from articles.models import Article
 from profiles.models import Profile
-from projects.models import ProjectIndividual
-
 from profiles.forms import ProfileAccountForm, ContributorAccountForm
 
 def index(request):
@@ -32,41 +29,11 @@ def index(request):
 def profile(request, profile_id=None, username=None):
     
     profile = get_object_or_404(Profile, user__username=username)
-    comments = Comment.objects.filter(
-        user__username=username,
-        is_removed=False)
-    articles = Article.objects.filter(
-        users__username=username,
-        is_published=True)
-    project_roles = ProjectIndividual.objects.filter(individual__username=username)
-    
-    # Put the following in a reusable 'objects_stream():'
-    # stream_objects = []
-    # 
-    # for comment in comments.all():
-    #     stream_object = comment
-    #     stream_object.stream_date = comment.submit_date
-    #     stream_objects.append(stream_object)
-    #     
-    # for article in articles.all():
-    #     stream_object = article
-    #     stream_object.stream_date = article.published
-    #     stream_objects.append(stream_object)
-    #     
-    # # for project_role in project_roles.all():
-    # #        stream_object = project_role
-    # #        stream_object.stream_date = project_role.project.published
-    # #        stream_objects.append(stream_object) 
-    # 
-    # stream_objects.sort(key=lambda obj:obj.stream_date, reverse=True)
     
     return render_to_response(
         'profiles/profile.html',
         {
             "profile": profile,
-            "comments": comments,
-            "articles": articles,
-            # "stream_objects": stream_objects,   
         },
         context_instance=RequestContext(request))
 

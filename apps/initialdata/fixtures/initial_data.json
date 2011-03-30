@@ -1,0 +1,43 @@
+[
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "energyforopportunity.org", 
+            "name": "energyforopportunity.org"
+        }
+    }
+][
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "dan.peade@gmail.com", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2011-03-27 11:16:11", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$6f557$ed301651c4287e1ef0f5df13fa34cf39c712719f", 
+            "email": "dan.peade@gmail.com", 
+            "date_joined": "2011-03-27 11:16:11"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "profiles.profile", 
+        "fields": {
+            "website": "", 
+            "profession": "", 
+            "site": null, 
+            "avatar": null, 
+            "is_contributor": false, 
+            "user": 1, 
+            "biography": "", 
+            "location": ""
+        }
+    }
+]

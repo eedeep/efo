@@ -32,18 +32,12 @@ urlpatterns = patterns("",
         name="acct_login"),
 
     url(r"^$", "landings.views.home", name="home"),
-    url(r"^articles/", include("articles.urls")), 
-    url(r"^base/", include("base.urls")),
-    url(r"^colophon/", include("colophon.urls")),
-    url(r"^topics/", include("topics.urls")),
     url(r"^tags/", include("tags.urls")),
     url(r"^projects/", include("projects.urls")),
-    url(r"^events/", include("events.urls")),
-    url(r"^companies/", include("organisations.urls")),
+    url(r"^projects/", include("programmes.urls")),
     url(r"^profiles/", include("profiles.urls")),
     url(r"^search/", include("search.urls")),
     url(r"^inbox/", include("inbox.urls")),
-    url(r"^magazines/", include("publications.urls")),
     
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^db/(.*)', databrowse.site.root),
@@ -77,9 +71,6 @@ urlpatterns = patterns("",
     (r'^grappelli/', include('grappelli.urls')),
     (r'^admin/filebrowser/', include('filebrowser.urls')),
     url(r'^admin_tools/', include('admin_tools.urls')),
-    
-    
-    
     
 )
 
